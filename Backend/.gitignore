@@ -1,0 +1,24 @@
+# Dependencias
+node_modules/
+
+# Archivos compilados de TypeScript (lo que genera npm run build)
+dist/
+build/
+
+# Variables de entorno (¡NUNCA SUBAS ESTO A GITHUB!)
+.env
+.env*.local
+
+# Archivos de base de datos local (Por si decides usar SQLite con Prisma)
+*.db
+*.db-journal
+/prisma/data.db
+
+# Logs de errores
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos basura del sistema operativo
+.DS_Store
+Thumbs.db
