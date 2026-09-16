@@ -1,0 +1,4 @@
+model Pelicula {
+  Id     Int    @id @default(autoincrement())
+  Titulo String @unique
+}

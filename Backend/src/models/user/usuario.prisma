@@ -1,4 +1,4 @@
-model User {
+model Usuario {
   Id              Int       @id @default(autoincrement())
   NombreUsuario   String    @unique
   Contrasenia     String

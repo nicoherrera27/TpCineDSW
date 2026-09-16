@@ -1,10 +1,10 @@
-import 'dotenv/config';
+//import 'dotenv/config';
 
 import { prisma } from "./lib/prisma";
 
 async function main() {
 
-  const user = await prisma.user.create({
+  const usuario = await prisma.usuario.create({
     data: {
       NombreUsuario: "Alice",
       Contrasenia: "password",
@@ -16,11 +16,21 @@ async function main() {
      
     },
   });
-  console.log("Created user:", user);
+  console.log("Created user:", usuario);
 
   // Fetch all users with their posts
-  const allUsers = await prisma.user.findMany({});
-  console.log("All users:", JSON.stringify(allUsers, null, 2));
+  const allUsuarios = await prisma.usuario.findMany({});
+  console.log("Usuarios:", JSON.stringify(allUsuarios, null, 2));
+
+  const pelicula = await prisma.pelicula.create({
+    data: {
+      Titulo: "Inception",
+    }
+  });
+
+  const allPeliculas = await prisma.pelicula.findMany({});
+  console.log("Peliculas:", JSON.stringify(allPeliculas, null, 2));
+
 }
 
 main()
