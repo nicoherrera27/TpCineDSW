@@ -1,0 +1,10 @@
+model User {
+  Id              Int       @id @default(autoincrement())
+  NombreUsuario   String    @unique
+  Contrasenia     String
+  Nombre          String
+  Apellido        String
+  Email           String    @unique
+  FechaNacimiento DateTime?
+  FechaAlta       DateTime  @default(now())
+}
