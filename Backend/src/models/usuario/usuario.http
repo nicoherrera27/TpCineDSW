@@ -1,0 +1,33 @@
+### GET ALL
+GET http://localhost:3000/api/usuarios
+
+### GET ONE
+GET http://localhost:3000/api/usuarios/1
+
+###POST
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+    "NombreUsuario": "Usuario",
+    "Contrasenia": "usuario123",
+    "Nombre": "Juan",
+    "Apellido": "Perez",
+    "Email": "juan@gmail.com",
+    "FechaNacimiento": "1990-01-01"
+}
+
+### PUT
+PUT http://localhost:3000/api/usuarios/1
+Content-Type: application/json
+
+{
+    "NombreUsuario": "Usuario2",
+    "Contrasenia": "usuario123",
+    "Nombre": "Juan",
+    "Apellido": "Perez",
+    "Email": "juan2@gmail.com",
+    "FechaNacimiento": "1990-01-01"
+}
+# DELETE
+DELETE http://localhost:3000/api/usuarios/1
