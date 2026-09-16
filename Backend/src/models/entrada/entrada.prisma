@@ -1,4 +1,0 @@
-model Entrada {
-  Id   Int    @id @default(autoincrement())
-  Tipo String @unique
-}
