@@ -1,6 +1,6 @@
 model Horario {
-    Id          Int       @id @default(autoincrement())
-    Hora        DateTime  @db.Time
-    funcion     Funcion @relation(fields: [funcionId], references: [Id])
-    funcionId   Int
+  Id        Int      @id @default(autoincrement())
+  Hora      DateTime @db.Time
+  funcion   Funcion  @relation(fields: [funcionId], references: [Id])
+  funcionId Int
 }

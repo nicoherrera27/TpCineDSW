@@ -1,6 +1,6 @@
 model Sala {
-  Id            Int      @id @default(autoincrement())
-  nombre        String
-  capacidad     Int
-  funciones     Funcion[]
+  Id        Int       @id @default(autoincrement())
+  nombre    String
+  capacidad Int
+  funciones Funcion[]
 }
