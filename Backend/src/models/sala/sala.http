@@ -1,0 +1,25 @@
+### GET ALL
+GET http://localhost:3000/api/salas
+
+### GET ONE
+GET http://localhost:3000/api/salas/1
+
+###POST
+POST http://localhost:3000/api/salas
+Content-Type: application/json
+
+{
+  "Nombre": "me", 
+  "Capacidad": "80"      
+}
+
+### PUT
+PUT http://localhost:3000/api/salas/1
+Content-Type: application/json
+
+{
+  "Estado": "do",
+  "Fecha": "100"
+}
+### DELETE
+DELETE http://localhost:3000/api/salas/1

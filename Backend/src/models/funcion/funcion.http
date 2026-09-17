@@ -1,0 +1,25 @@
+### GET ALL
+GET http://localhost:3000/api/funciones
+
+### GET ONE
+GET http://localhost:3000/api/funciones/1
+
+###POST
+POST http://localhost:3000/api/funciones
+Content-Type: application/json
+
+{
+  "Estado": "Pendiente", // opciones: "pendiente", "activa", "cancelada"
+  "Fecha": "2026-10-25"         
+}
+
+### PUT
+PUT http://localhost:3000/api/funciones/1
+Content-Type: application/json
+
+{
+  "Estado": "Pendiente",
+  "Fecha": "2026-11-01"
+}
+### DELETE
+DELETE http://localhost:3000/api/funciones/1

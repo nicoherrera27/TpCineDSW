@@ -1,0 +1,23 @@
+### GET ALL
+GET http://localhost:3000/api/horarios
+
+### GET ONE
+GET http://localhost:3000/api/horarios/1
+
+###POST
+POST http://localhost:3000/api/horarios
+Content-Type: application/json
+
+{
+    "Hora": "14:30"
+}
+
+### PUT
+PUT http://localhost:3000/api/horarios/1
+Content-Type: application/json
+
+{
+    "Hora": "16:30"
+}
+### DELETE
+DELETE http://localhost:3000/api/horarios/1

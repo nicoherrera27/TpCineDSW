@@ -2,3 +2,7 @@ allowBuilds:
   '@prisma/engines': true
   esbuild: true
   prisma: true
+ignoredBuiltDependencies:
+  - '@prisma/engines'
+  - esbuild
+  - prisma
