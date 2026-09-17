@@ -1,10 +1,16 @@
 import { peliculaRouter } from "./models/pelicula/pelicula.routes";
+import cors from 'cors';
 
 import {usuarioRouter} from './models/usuario/usuario.routes';
 import express from 'express';
 
 const app = express();
+app.use(cors({
+  origin: 'http://localhost:4321',
+  credentials: true,
+}));
 app.use(express.json());
+
 
 app.use('/api/usuarios', usuarioRouter);
 app.use('/api/peliculas', peliculaRouter);

@@ -4,14 +4,12 @@ import {prisma} from '../../lib/prisma';
 function sanitizeUsuarioInput(req: Request, res: Response, next: NextFunction) {
   // Aca se realizarian las validaciones //
   req.body.sanitizedInput = {
-    NombreUsuario: req.body.NombreUsuario,
+    Email: req.body.Email,
     Contrasenia: req.body.Contrasenia,
     Nombre: req.body.Nombre,
     Apellido: req.body.Apellido,
-    Email: req.body.Email,
-    FechaNacimiento: req.body.FechaNacimiento
-      ? new Date(`${req.body.FechaNacimiento}T00:00:00.000Z`)
-      : undefined
+    Rol: req.body.Rol
+
   }
 
   Object.keys(req.body.sanitizedInput).forEach((key) => {

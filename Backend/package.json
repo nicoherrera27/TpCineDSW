@@ -1,5 +1,5 @@
 {
-  "name": "Back",
+  "name": "Backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  
   "type": "module",
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -22,12 +21,10 @@
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   },
-  "prisma": {
-  "schema": "src"
-  },
   "dependencies": {
     "@prisma/adapter-mariadb": "^7.10.0",
     "@prisma/client": "7.10.0",
+    "axios": "^1.20.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1"
   }

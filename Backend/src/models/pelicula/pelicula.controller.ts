@@ -1,6 +1,6 @@
 import {prisma} from "../../lib/prisma";
 import {Request, Response} from "express";
-import {fetchTMDBPeliculas} from "../../lib/tmdb";
+import {fetchTMDBPeliculas, buscarTMDBPeliculas} from "../../lib/tmdb";
 
 async function createPelicula (req: Request, res: Response){
   try{
@@ -24,5 +24,18 @@ async function createPelicula (req: Request, res: Response){
   }
 }
 
-export {createPelicula};
+async function getPelicula(req: Request, res: Response){
+  try{
+    const busqueda = req.params.query as string;
+    const peliculas = await buscarTMDBPeliculas(busqueda);
+    
+    res.status(200).json({message: 'Peliculas encontradas', data: peliculas.results});
+  }
+  catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+
+export {createPelicula, getPelicula};
  

@@ -1,10 +1,10 @@
 model Funcion {
-  Id          Int               @id @default(autoincrement())
+  Id          Int              @id @default(autoincrement())
   Estado      String
-  Fecha       DateTime?         @db.Date
+  Fecha       DateTime?        @db.Date
   horarios    Horario[]
-  categoria   Categoria_funcion @relation(fields: [categoriaId], references: [Id])
+  categoria   CategoriaFuncion @relation(fields: [categoriaId], references: [Id])
   categoriaId Int
-  sala        Sala              @relation(fields: [salaId], references: [Id])
+  sala        Sala             @relation(fields: [salaId], references: [Id])
   salaId      Int
 }

@@ -1,10 +1,13 @@
+enum RolUsuario {
+  usuario
+  admin
+}
+
 model Usuario {
-  Id              Int       @id @default(autoincrement())
-  NombreUsuario   String    @unique
-  Contrasenia     String
-  Nombre          String
-  Apellido        String
-  Email           String    @unique
-  FechaNacimiento DateTime?
-  FechaAlta       DateTime  @default(now())
+  Id          Int        @id @default(autoincrement())
+  Email       String     @unique
+  Contrasenia String
+  Nombre      String
+  Apellido    String
+  Rol         RolUsuario @default(usuario)
 }

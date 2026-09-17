@@ -1,17 +1,18 @@
-const BASE_URL = "https://api.themoviedb.org/3";
-const API_KEY = process.env.TMDB_API_KEY;
-
-const headers ={
-  Authorization: `Bearer ${API_KEY}`,
-  'Content-Type': 'application/json'
-}
+import { axiosTMBD } from "./axios";
 
 async function fetchTMDBPeliculas(tmdbId: number){
-  const res = await fetch(
-    `${BASE_URL}/movie/${tmdbId}?language=es-AR`,
-    {headers}
+
+  const res = await axiosTMBD.get(
+    `/movie/${tmdbId}?language=en-US`
   );
-  return res.json();
+  return res.data;
 }
 
-export {fetchTMDBPeliculas};
+async function buscarTMDBPeliculas(query: string) {
+  const res = await axiosTMBD.get(
+    `/search/movie?query=${query}&language=en-US`
+  );
+  return res.data;
+}
+
+export {fetchTMDBPeliculas, buscarTMDBPeliculas};
