@@ -2,5 +2,5 @@ model CategoriaFuncion {
   Id          Int       @id @default(autoincrement())
   descripcion String
   precio      Int
-  funciones   Funcion[]
+  funcion     Funcion[]
 }
