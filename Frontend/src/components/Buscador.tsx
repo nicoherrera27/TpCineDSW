@@ -42,8 +42,11 @@ export default function Buscador() {
                 src={`${imageBaseURL}${peli.poster_path}`}
                 alt={peli.title}
                 className="rounded-lg shadow-md w-full"
-              />
-              <h2 className="text-center mt-2 text-sm font-medium">{peli.title}</h2>
+              /> {/* Poster */}
+              <h2 className="text-center mt-2 text-sm font-medium">{peli.title}</h2> {/* Titulo */}
+              {peli.generos && (<p className="text-blue-400 text-xs">{peli.generos}</p>)} {/* Géneros */}
+              {peli.release_date && (<p className="text-gray-400 text-xs">Estreno: {peli.release_date}</p>)} {/* Fecha de estreno */}
+              {peli.overview && (<p className="text-gray-300 text-xs line-clamp-4">{peli.overview}</p>)} {/* Sinopsis */}
             </div>
           ))}
         </div>

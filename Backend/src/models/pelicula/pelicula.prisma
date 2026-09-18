@@ -2,6 +2,7 @@ model Pelicula {
   Id           Int      @id @default(autoincrement())
   TmdbId       Int      @unique
   Titulo       String   @unique
+  Generos      String
   Sinopsis     String?  @db.Text
   FechaEstreno String?
   Poster       String?

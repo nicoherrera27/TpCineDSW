@@ -40,6 +40,7 @@ export type PeliculaMinAggregateOutputType = {
   Id: number | null
   TmdbId: number | null
   Titulo: string | null
+  Generos: string | null
   Sinopsis: string | null
   FechaEstreno: string | null
   Poster: string | null
@@ -50,6 +51,7 @@ export type PeliculaMaxAggregateOutputType = {
   Id: number | null
   TmdbId: number | null
   Titulo: string | null
+  Generos: string | null
   Sinopsis: string | null
   FechaEstreno: string | null
   Poster: string | null
@@ -60,6 +62,7 @@ export type PeliculaCountAggregateOutputType = {
   Id: number
   TmdbId: number
   Titulo: number
+  Generos: number
   Sinopsis: number
   FechaEstreno: number
   Poster: number
@@ -82,6 +85,7 @@ export type PeliculaMinAggregateInputType = {
   Id?: true
   TmdbId?: true
   Titulo?: true
+  Generos?: true
   Sinopsis?: true
   FechaEstreno?: true
   Poster?: true
@@ -92,6 +96,7 @@ export type PeliculaMaxAggregateInputType = {
   Id?: true
   TmdbId?: true
   Titulo?: true
+  Generos?: true
   Sinopsis?: true
   FechaEstreno?: true
   Poster?: true
@@ -102,6 +107,7 @@ export type PeliculaCountAggregateInputType = {
   Id?: true
   TmdbId?: true
   Titulo?: true
+  Generos?: true
   Sinopsis?: true
   FechaEstreno?: true
   Poster?: true
@@ -199,6 +205,7 @@ export type PeliculaGroupByOutputType = {
   Id: number
   TmdbId: number
   Titulo: string
+  Generos: string
   Sinopsis: string | null
   FechaEstreno: string | null
   Poster: string | null
@@ -232,6 +239,7 @@ export type PeliculaWhereInput = {
   Id?: Prisma.IntFilter<"Pelicula"> | number
   TmdbId?: Prisma.IntFilter<"Pelicula"> | number
   Titulo?: Prisma.StringFilter<"Pelicula"> | string
+  Generos?: Prisma.StringFilter<"Pelicula"> | string
   Sinopsis?: Prisma.StringNullableFilter<"Pelicula"> | string | null
   FechaEstreno?: Prisma.StringNullableFilter<"Pelicula"> | string | null
   Poster?: Prisma.StringNullableFilter<"Pelicula"> | string | null
@@ -242,6 +250,7 @@ export type PeliculaOrderByWithRelationInput = {
   Id?: Prisma.SortOrder
   TmdbId?: Prisma.SortOrder
   Titulo?: Prisma.SortOrder
+  Generos?: Prisma.SortOrder
   Sinopsis?: Prisma.SortOrderInput | Prisma.SortOrder
   FechaEstreno?: Prisma.SortOrderInput | Prisma.SortOrder
   Poster?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -256,6 +265,7 @@ export type PeliculaWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.PeliculaWhereInput | Prisma.PeliculaWhereInput[]
   OR?: Prisma.PeliculaWhereInput[]
   NOT?: Prisma.PeliculaWhereInput | Prisma.PeliculaWhereInput[]
+  Generos?: Prisma.StringFilter<"Pelicula"> | string
   Sinopsis?: Prisma.StringNullableFilter<"Pelicula"> | string | null
   FechaEstreno?: Prisma.StringNullableFilter<"Pelicula"> | string | null
   Poster?: Prisma.StringNullableFilter<"Pelicula"> | string | null
@@ -266,6 +276,7 @@ export type PeliculaOrderByWithAggregationInput = {
   Id?: Prisma.SortOrder
   TmdbId?: Prisma.SortOrder
   Titulo?: Prisma.SortOrder
+  Generos?: Prisma.SortOrder
   Sinopsis?: Prisma.SortOrderInput | Prisma.SortOrder
   FechaEstreno?: Prisma.SortOrderInput | Prisma.SortOrder
   Poster?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -284,6 +295,7 @@ export type PeliculaScalarWhereWithAggregatesInput = {
   Id?: Prisma.IntWithAggregatesFilter<"Pelicula"> | number
   TmdbId?: Prisma.IntWithAggregatesFilter<"Pelicula"> | number
   Titulo?: Prisma.StringWithAggregatesFilter<"Pelicula"> | string
+  Generos?: Prisma.StringWithAggregatesFilter<"Pelicula"> | string
   Sinopsis?: Prisma.StringNullableWithAggregatesFilter<"Pelicula"> | string | null
   FechaEstreno?: Prisma.StringNullableWithAggregatesFilter<"Pelicula"> | string | null
   Poster?: Prisma.StringNullableWithAggregatesFilter<"Pelicula"> | string | null
@@ -293,6 +305,7 @@ export type PeliculaScalarWhereWithAggregatesInput = {
 export type PeliculaCreateInput = {
   TmdbId: number
   Titulo: string
+  Generos: string
   Sinopsis?: string | null
   FechaEstreno?: string | null
   Poster?: string | null
@@ -303,6 +316,7 @@ export type PeliculaUncheckedCreateInput = {
   Id?: number
   TmdbId: number
   Titulo: string
+  Generos: string
   Sinopsis?: string | null
   FechaEstreno?: string | null
   Poster?: string | null
@@ -312,6 +326,7 @@ export type PeliculaUncheckedCreateInput = {
 export type PeliculaUpdateInput = {
   TmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   Titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  Generos?: Prisma.StringFieldUpdateOperationsInput | string
   Sinopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   FechaEstreno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Poster?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -322,6 +337,7 @@ export type PeliculaUncheckedUpdateInput = {
   Id?: Prisma.IntFieldUpdateOperationsInput | number
   TmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   Titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  Generos?: Prisma.StringFieldUpdateOperationsInput | string
   Sinopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   FechaEstreno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Poster?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -332,6 +348,7 @@ export type PeliculaCreateManyInput = {
   Id?: number
   TmdbId: number
   Titulo: string
+  Generos: string
   Sinopsis?: string | null
   FechaEstreno?: string | null
   Poster?: string | null
@@ -341,6 +358,7 @@ export type PeliculaCreateManyInput = {
 export type PeliculaUpdateManyMutationInput = {
   TmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   Titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  Generos?: Prisma.StringFieldUpdateOperationsInput | string
   Sinopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   FechaEstreno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Poster?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -351,6 +369,7 @@ export type PeliculaUncheckedUpdateManyInput = {
   Id?: Prisma.IntFieldUpdateOperationsInput | number
   TmdbId?: Prisma.IntFieldUpdateOperationsInput | number
   Titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  Generos?: Prisma.StringFieldUpdateOperationsInput | string
   Sinopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   FechaEstreno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Poster?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -367,6 +386,7 @@ export type PeliculaCountOrderByAggregateInput = {
   Id?: Prisma.SortOrder
   TmdbId?: Prisma.SortOrder
   Titulo?: Prisma.SortOrder
+  Generos?: Prisma.SortOrder
   Sinopsis?: Prisma.SortOrder
   FechaEstreno?: Prisma.SortOrder
   Poster?: Prisma.SortOrder
@@ -382,6 +402,7 @@ export type PeliculaMaxOrderByAggregateInput = {
   Id?: Prisma.SortOrder
   TmdbId?: Prisma.SortOrder
   Titulo?: Prisma.SortOrder
+  Generos?: Prisma.SortOrder
   Sinopsis?: Prisma.SortOrder
   FechaEstreno?: Prisma.SortOrder
   Poster?: Prisma.SortOrder
@@ -392,6 +413,7 @@ export type PeliculaMinOrderByAggregateInput = {
   Id?: Prisma.SortOrder
   TmdbId?: Prisma.SortOrder
   Titulo?: Prisma.SortOrder
+  Generos?: Prisma.SortOrder
   Sinopsis?: Prisma.SortOrder
   FechaEstreno?: Prisma.SortOrder
   Poster?: Prisma.SortOrder
@@ -413,6 +435,7 @@ export type PeliculaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   Id?: boolean
   TmdbId?: boolean
   Titulo?: boolean
+  Generos?: boolean
   Sinopsis?: boolean
   FechaEstreno?: boolean
   Poster?: boolean
@@ -425,13 +448,14 @@ export type PeliculaSelectScalar = {
   Id?: boolean
   TmdbId?: boolean
   Titulo?: boolean
+  Generos?: boolean
   Sinopsis?: boolean
   FechaEstreno?: boolean
   Poster?: boolean
   FechaAlta?: boolean
 }
 
-export type PeliculaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id" | "TmdbId" | "Titulo" | "Sinopsis" | "FechaEstreno" | "Poster" | "FechaAlta", ExtArgs["result"]["pelicula"]>
+export type PeliculaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id" | "TmdbId" | "Titulo" | "Generos" | "Sinopsis" | "FechaEstreno" | "Poster" | "FechaAlta", ExtArgs["result"]["pelicula"]>
 
 export type $PeliculaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Pelicula"
@@ -440,6 +464,7 @@ export type $PeliculaPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     Id: number
     TmdbId: number
     Titulo: string
+    Generos: string
     Sinopsis: string | null
     FechaEstreno: string | null
     Poster: string | null
@@ -816,6 +841,7 @@ export interface PeliculaFieldRefs {
   readonly Id: Prisma.FieldRef<"Pelicula", 'Int'>
   readonly TmdbId: Prisma.FieldRef<"Pelicula", 'Int'>
   readonly Titulo: Prisma.FieldRef<"Pelicula", 'String'>
+  readonly Generos: Prisma.FieldRef<"Pelicula", 'String'>
   readonly Sinopsis: Prisma.FieldRef<"Pelicula", 'String'>
   readonly FechaEstreno: Prisma.FieldRef<"Pelicula", 'String'>
   readonly Poster: Prisma.FieldRef<"Pelicula", 'String'>

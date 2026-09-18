@@ -890,6 +890,7 @@ export const PeliculaScalarFieldEnum = {
   Id: 'Id',
   TmdbId: 'TmdbId',
   Titulo: 'Titulo',
+  Generos: 'Generos',
   Sinopsis: 'Sinopsis',
   FechaEstreno: 'FechaEstreno',
   Poster: 'Poster',
@@ -952,6 +953,7 @@ export type FuncionOrderByRelevanceFieldEnum = (typeof FuncionOrderByRelevanceFi
 
 export const PeliculaOrderByRelevanceFieldEnum = {
   Titulo: 'Titulo',
+  Generos: 'Generos',
   Sinopsis: 'Sinopsis',
   FechaEstreno: 'FechaEstreno',
   Poster: 'Poster'
