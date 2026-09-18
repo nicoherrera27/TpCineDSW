@@ -1,0 +1,23 @@
+### GET ALL
+GET http://localhost:3000/api/entradas
+
+### GET ONE
+GET http://localhost:3000/api/entradas/1
+
+###POST
+POST http://localhost:3000/api/entradas
+Content-Type: application/json
+
+{
+  "Tipo": "ni idea que tipo era"
+}
+
+### PUT
+PUT http://localhost:3000/api/entradas/1
+Content-Type: application/json
+
+{
+  "Tipo": "ni idea que tipo era"
+}
+### DELETE
+DELETE http://localhost:3000/api/entradas/1

@@ -1,0 +1,26 @@
+### GET ALL
+GET http://localhost:3000/api/tipo_entradas
+
+### GET ONE
+GET http://localhost:3000/api/tipo_entradas/1
+
+###POST
+POST http://localhost:3000/api/tipo_entradas
+Content-Type: application/json
+
+{
+  "Descripcion": "jubilado",
+  "Bonificacion": "20%"
+
+}
+
+### PUT
+PUT http://localhost:3000/api/tipo_entradas/1
+Content-Type: application/json
+
+{
+  "Descripcion": "menor",  
+  "Bonificacion": "15%"
+}
+### DELETE
+DELETE http://localhost:3000/api/tipo_entradas/1

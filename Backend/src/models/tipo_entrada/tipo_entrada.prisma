@@ -1,0 +1,5 @@
+model Tipo_entrada{
+    Id              Int @id @default(autoincrement())
+    Descripcion     String
+    Bonificacion    String
+}
