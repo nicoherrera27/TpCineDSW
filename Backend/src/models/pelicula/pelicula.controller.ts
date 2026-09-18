@@ -44,6 +44,15 @@ async function getPelicula(req: Request, res: Response){
   }
 }
 
+async function getPeliculas(req: Request, res: Response){
+  try{
+    const peliculas = await prisma.pelicula.findMany();
+    res.status(201).json({message: 'Peliculas encontradas', data: peliculas});
+  }
+  catch(error:any){
+    res.status(500).json({ message: error.message })
+  }
+}
 
-export {createPelicula, getPelicula};
+export {createPelicula, getPelicula, getPeliculas};
  

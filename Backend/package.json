@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsx watch --env-file=.env ./src/app.ts",
-    "start:dev": "prisma db push && prisma generate && tsx watch --env-file=.env ./src/app.ts"
+    "start:dev": "prisma db push && prisma generate && prisma db seed && tsx watch --env-file=.env ./src/app.ts"
   },
   "keywords": [],
   "author": "",

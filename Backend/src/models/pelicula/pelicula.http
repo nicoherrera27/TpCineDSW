@@ -3,4 +3,4 @@ POST http://localhost:3000/api/peliculas/969681
 
 
 ###GET
-GET http://localhost:3000/api/peliculas/avengers
+GET http://localhost:3000/api/peliculas

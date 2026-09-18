@@ -19,6 +19,18 @@ export default function Buscador() {
       }
     };
 
+    const handleAdd = async(id : Number) =>{
+      try{
+        const url= `${baseURL}/peliculas/${id}`
+        const response = await axios.post(url);
+        console.log('Películas cargada:', response.data.data);
+      }
+      catch(error){
+        console.error('Error al agregar pelicula', error)
+      }
+
+    };
+
   return (
     <div className="flex flex-col gap-4 w-full max-w-7x1 mx-auto p-4">
       <textarea
@@ -41,6 +53,8 @@ export default function Buscador() {
               <img
                 src={`${imageBaseURL}${peli.poster_path}`}
                 alt={peli.title}
+                onClick={() => handleAdd(peli.id)}
+                style={{ cursor: 'pointer' }}
                 className="rounded-lg shadow-md w-full"
               /> {/* Poster */}
               <h2 className="text-center mt-2 text-sm font-medium">{peli.title}</h2> {/* Titulo */}

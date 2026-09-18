@@ -1,5 +1,5 @@
 ---
-import Hola from '../components/Hola.astro';
+import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -7,5 +7,23 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-  <Hola />
+  <h1>BIENVENIDO AL CINE</h1>
+  <ul>
+    <li>
+      <a href="/hola">
+        <button
+          class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
+        >
+          Buscador
+        </button></a
+      >
+    </li>
+    <a href="/listado">
+      <button
+        class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors cursor-pointer"
+      >
+        Listado
+      </button>
+    </a>
+  </ul>
 </Layout>
