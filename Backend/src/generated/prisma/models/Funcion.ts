@@ -30,12 +30,14 @@ export type FuncionAvgAggregateOutputType = {
   Id: number | null
   categoriaId: number | null
   salaId: number | null
+  peliculaId: number | null
 }
 
 export type FuncionSumAggregateOutputType = {
   Id: number | null
   categoriaId: number | null
   salaId: number | null
+  peliculaId: number | null
 }
 
 export type FuncionMinAggregateOutputType = {
@@ -44,6 +46,7 @@ export type FuncionMinAggregateOutputType = {
   Fecha: Date | null
   categoriaId: number | null
   salaId: number | null
+  peliculaId: number | null
 }
 
 export type FuncionMaxAggregateOutputType = {
@@ -52,6 +55,7 @@ export type FuncionMaxAggregateOutputType = {
   Fecha: Date | null
   categoriaId: number | null
   salaId: number | null
+  peliculaId: number | null
 }
 
 export type FuncionCountAggregateOutputType = {
@@ -60,6 +64,7 @@ export type FuncionCountAggregateOutputType = {
   Fecha: number
   categoriaId: number
   salaId: number
+  peliculaId: number
   _all: number
 }
 
@@ -68,12 +73,14 @@ export type FuncionAvgAggregateInputType = {
   Id?: true
   categoriaId?: true
   salaId?: true
+  peliculaId?: true
 }
 
 export type FuncionSumAggregateInputType = {
   Id?: true
   categoriaId?: true
   salaId?: true
+  peliculaId?: true
 }
 
 export type FuncionMinAggregateInputType = {
@@ -82,6 +89,7 @@ export type FuncionMinAggregateInputType = {
   Fecha?: true
   categoriaId?: true
   salaId?: true
+  peliculaId?: true
 }
 
 export type FuncionMaxAggregateInputType = {
@@ -90,6 +98,7 @@ export type FuncionMaxAggregateInputType = {
   Fecha?: true
   categoriaId?: true
   salaId?: true
+  peliculaId?: true
 }
 
 export type FuncionCountAggregateInputType = {
@@ -98,6 +107,7 @@ export type FuncionCountAggregateInputType = {
   Fecha?: true
   categoriaId?: true
   salaId?: true
+  peliculaId?: true
   _all?: true
 }
 
@@ -193,6 +203,7 @@ export type FuncionGroupByOutputType = {
   Fecha: Date | null
   categoriaId: number
   salaId: number
+  peliculaId: number
   _count: FuncionCountAggregateOutputType | null
   _avg: FuncionAvgAggregateOutputType | null
   _sum: FuncionSumAggregateOutputType | null
@@ -224,9 +235,11 @@ export type FuncionWhereInput = {
   Fecha?: Prisma.DateTimeNullableFilter<"Funcion"> | Date | string | null
   categoriaId?: Prisma.IntFilter<"Funcion"> | number
   salaId?: Prisma.IntFilter<"Funcion"> | number
+  peliculaId?: Prisma.IntFilter<"Funcion"> | number
   horarios?: Prisma.HorarioListRelationFilter
   categoria?: Prisma.XOR<Prisma.CategoriaFuncionScalarRelationFilter, Prisma.CategoriaFuncionWhereInput>
   sala?: Prisma.XOR<Prisma.SalaScalarRelationFilter, Prisma.SalaWhereInput>
+  pelicula?: Prisma.XOR<Prisma.PeliculaScalarRelationFilter, Prisma.PeliculaWhereInput>
 }
 
 export type FuncionOrderByWithRelationInput = {
@@ -235,9 +248,11 @@ export type FuncionOrderByWithRelationInput = {
   Fecha?: Prisma.SortOrderInput | Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   salaId?: Prisma.SortOrder
+  peliculaId?: Prisma.SortOrder
   horarios?: Prisma.HorarioOrderByRelationAggregateInput
   categoria?: Prisma.CategoriaFuncionOrderByWithRelationInput
   sala?: Prisma.SalaOrderByWithRelationInput
+  pelicula?: Prisma.PeliculaOrderByWithRelationInput
   _relevance?: Prisma.FuncionOrderByRelevanceInput
 }
 
@@ -250,9 +265,11 @@ export type FuncionWhereUniqueInput = Prisma.AtLeast<{
   Fecha?: Prisma.DateTimeNullableFilter<"Funcion"> | Date | string | null
   categoriaId?: Prisma.IntFilter<"Funcion"> | number
   salaId?: Prisma.IntFilter<"Funcion"> | number
+  peliculaId?: Prisma.IntFilter<"Funcion"> | number
   horarios?: Prisma.HorarioListRelationFilter
   categoria?: Prisma.XOR<Prisma.CategoriaFuncionScalarRelationFilter, Prisma.CategoriaFuncionWhereInput>
   sala?: Prisma.XOR<Prisma.SalaScalarRelationFilter, Prisma.SalaWhereInput>
+  pelicula?: Prisma.XOR<Prisma.PeliculaScalarRelationFilter, Prisma.PeliculaWhereInput>
 }, "Id">
 
 export type FuncionOrderByWithAggregationInput = {
@@ -261,6 +278,7 @@ export type FuncionOrderByWithAggregationInput = {
   Fecha?: Prisma.SortOrderInput | Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   salaId?: Prisma.SortOrder
+  peliculaId?: Prisma.SortOrder
   _count?: Prisma.FuncionCountOrderByAggregateInput
   _avg?: Prisma.FuncionAvgOrderByAggregateInput
   _max?: Prisma.FuncionMaxOrderByAggregateInput
@@ -277,14 +295,16 @@ export type FuncionScalarWhereWithAggregatesInput = {
   Fecha?: Prisma.DateTimeNullableWithAggregatesFilter<"Funcion"> | Date | string | null
   categoriaId?: Prisma.IntWithAggregatesFilter<"Funcion"> | number
   salaId?: Prisma.IntWithAggregatesFilter<"Funcion"> | number
+  peliculaId?: Prisma.IntWithAggregatesFilter<"Funcion"> | number
 }
 
 export type FuncionCreateInput = {
   Estado: string
   Fecha?: Date | string | null
   horarios?: Prisma.HorarioCreateNestedManyWithoutFuncionInput
-  categoria: Prisma.CategoriaFuncionCreateNestedOneWithoutFuncionesInput
+  categoria: Prisma.CategoriaFuncionCreateNestedOneWithoutFuncionInput
   sala: Prisma.SalaCreateNestedOneWithoutFuncionesInput
+  pelicula: Prisma.PeliculaCreateNestedOneWithoutFuncionInput
 }
 
 export type FuncionUncheckedCreateInput = {
@@ -293,6 +313,7 @@ export type FuncionUncheckedCreateInput = {
   Fecha?: Date | string | null
   categoriaId: number
   salaId: number
+  peliculaId: number
   horarios?: Prisma.HorarioUncheckedCreateNestedManyWithoutFuncionInput
 }
 
@@ -300,8 +321,9 @@ export type FuncionUpdateInput = {
   Estado?: Prisma.StringFieldUpdateOperationsInput | string
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   horarios?: Prisma.HorarioUpdateManyWithoutFuncionNestedInput
-  categoria?: Prisma.CategoriaFuncionUpdateOneRequiredWithoutFuncionesNestedInput
+  categoria?: Prisma.CategoriaFuncionUpdateOneRequiredWithoutFuncionNestedInput
   sala?: Prisma.SalaUpdateOneRequiredWithoutFuncionesNestedInput
+  pelicula?: Prisma.PeliculaUpdateOneRequiredWithoutFuncionNestedInput
 }
 
 export type FuncionUncheckedUpdateInput = {
@@ -310,6 +332,7 @@ export type FuncionUncheckedUpdateInput = {
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   salaId?: Prisma.IntFieldUpdateOperationsInput | number
+  peliculaId?: Prisma.IntFieldUpdateOperationsInput | number
   horarios?: Prisma.HorarioUncheckedUpdateManyWithoutFuncionNestedInput
 }
 
@@ -319,6 +342,7 @@ export type FuncionCreateManyInput = {
   Fecha?: Date | string | null
   categoriaId: number
   salaId: number
+  peliculaId: number
 }
 
 export type FuncionUpdateManyMutationInput = {
@@ -332,6 +356,7 @@ export type FuncionUncheckedUpdateManyInput = {
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   salaId?: Prisma.IntFieldUpdateOperationsInput | number
+  peliculaId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type FuncionListRelationFilter = {
@@ -356,12 +381,14 @@ export type FuncionCountOrderByAggregateInput = {
   Fecha?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   salaId?: Prisma.SortOrder
+  peliculaId?: Prisma.SortOrder
 }
 
 export type FuncionAvgOrderByAggregateInput = {
   Id?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   salaId?: Prisma.SortOrder
+  peliculaId?: Prisma.SortOrder
 }
 
 export type FuncionMaxOrderByAggregateInput = {
@@ -370,6 +397,7 @@ export type FuncionMaxOrderByAggregateInput = {
   Fecha?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   salaId?: Prisma.SortOrder
+  peliculaId?: Prisma.SortOrder
 }
 
 export type FuncionMinOrderByAggregateInput = {
@@ -378,12 +406,14 @@ export type FuncionMinOrderByAggregateInput = {
   Fecha?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   salaId?: Prisma.SortOrder
+  peliculaId?: Prisma.SortOrder
 }
 
 export type FuncionSumOrderByAggregateInput = {
   Id?: Prisma.SortOrder
   categoriaId?: Prisma.SortOrder
   salaId?: Prisma.SortOrder
+  peliculaId?: Prisma.SortOrder
 }
 
 export type FuncionScalarRelationFilter = {
@@ -451,6 +481,48 @@ export type FuncionUpdateOneRequiredWithoutHorariosNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.FuncionUpdateToOneWithWhereWithoutHorariosInput, Prisma.FuncionUpdateWithoutHorariosInput>, Prisma.FuncionUncheckedUpdateWithoutHorariosInput>
 }
 
+export type FuncionCreateNestedManyWithoutPeliculaInput = {
+  create?: Prisma.XOR<Prisma.FuncionCreateWithoutPeliculaInput, Prisma.FuncionUncheckedCreateWithoutPeliculaInput> | Prisma.FuncionCreateWithoutPeliculaInput[] | Prisma.FuncionUncheckedCreateWithoutPeliculaInput[]
+  connectOrCreate?: Prisma.FuncionCreateOrConnectWithoutPeliculaInput | Prisma.FuncionCreateOrConnectWithoutPeliculaInput[]
+  createMany?: Prisma.FuncionCreateManyPeliculaInputEnvelope
+  connect?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+}
+
+export type FuncionUncheckedCreateNestedManyWithoutPeliculaInput = {
+  create?: Prisma.XOR<Prisma.FuncionCreateWithoutPeliculaInput, Prisma.FuncionUncheckedCreateWithoutPeliculaInput> | Prisma.FuncionCreateWithoutPeliculaInput[] | Prisma.FuncionUncheckedCreateWithoutPeliculaInput[]
+  connectOrCreate?: Prisma.FuncionCreateOrConnectWithoutPeliculaInput | Prisma.FuncionCreateOrConnectWithoutPeliculaInput[]
+  createMany?: Prisma.FuncionCreateManyPeliculaInputEnvelope
+  connect?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+}
+
+export type FuncionUpdateManyWithoutPeliculaNestedInput = {
+  create?: Prisma.XOR<Prisma.FuncionCreateWithoutPeliculaInput, Prisma.FuncionUncheckedCreateWithoutPeliculaInput> | Prisma.FuncionCreateWithoutPeliculaInput[] | Prisma.FuncionUncheckedCreateWithoutPeliculaInput[]
+  connectOrCreate?: Prisma.FuncionCreateOrConnectWithoutPeliculaInput | Prisma.FuncionCreateOrConnectWithoutPeliculaInput[]
+  upsert?: Prisma.FuncionUpsertWithWhereUniqueWithoutPeliculaInput | Prisma.FuncionUpsertWithWhereUniqueWithoutPeliculaInput[]
+  createMany?: Prisma.FuncionCreateManyPeliculaInputEnvelope
+  set?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+  disconnect?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+  delete?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+  connect?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+  update?: Prisma.FuncionUpdateWithWhereUniqueWithoutPeliculaInput | Prisma.FuncionUpdateWithWhereUniqueWithoutPeliculaInput[]
+  updateMany?: Prisma.FuncionUpdateManyWithWhereWithoutPeliculaInput | Prisma.FuncionUpdateManyWithWhereWithoutPeliculaInput[]
+  deleteMany?: Prisma.FuncionScalarWhereInput | Prisma.FuncionScalarWhereInput[]
+}
+
+export type FuncionUncheckedUpdateManyWithoutPeliculaNestedInput = {
+  create?: Prisma.XOR<Prisma.FuncionCreateWithoutPeliculaInput, Prisma.FuncionUncheckedCreateWithoutPeliculaInput> | Prisma.FuncionCreateWithoutPeliculaInput[] | Prisma.FuncionUncheckedCreateWithoutPeliculaInput[]
+  connectOrCreate?: Prisma.FuncionCreateOrConnectWithoutPeliculaInput | Prisma.FuncionCreateOrConnectWithoutPeliculaInput[]
+  upsert?: Prisma.FuncionUpsertWithWhereUniqueWithoutPeliculaInput | Prisma.FuncionUpsertWithWhereUniqueWithoutPeliculaInput[]
+  createMany?: Prisma.FuncionCreateManyPeliculaInputEnvelope
+  set?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+  disconnect?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+  delete?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+  connect?: Prisma.FuncionWhereUniqueInput | Prisma.FuncionWhereUniqueInput[]
+  update?: Prisma.FuncionUpdateWithWhereUniqueWithoutPeliculaInput | Prisma.FuncionUpdateWithWhereUniqueWithoutPeliculaInput[]
+  updateMany?: Prisma.FuncionUpdateManyWithWhereWithoutPeliculaInput | Prisma.FuncionUpdateManyWithWhereWithoutPeliculaInput[]
+  deleteMany?: Prisma.FuncionScalarWhereInput | Prisma.FuncionScalarWhereInput[]
+}
+
 export type FuncionCreateNestedManyWithoutSalaInput = {
   create?: Prisma.XOR<Prisma.FuncionCreateWithoutSalaInput, Prisma.FuncionUncheckedCreateWithoutSalaInput> | Prisma.FuncionCreateWithoutSalaInput[] | Prisma.FuncionUncheckedCreateWithoutSalaInput[]
   connectOrCreate?: Prisma.FuncionCreateOrConnectWithoutSalaInput | Prisma.FuncionCreateOrConnectWithoutSalaInput[]
@@ -498,6 +570,7 @@ export type FuncionCreateWithoutCategoriaInput = {
   Fecha?: Date | string | null
   horarios?: Prisma.HorarioCreateNestedManyWithoutFuncionInput
   sala: Prisma.SalaCreateNestedOneWithoutFuncionesInput
+  pelicula: Prisma.PeliculaCreateNestedOneWithoutFuncionInput
 }
 
 export type FuncionUncheckedCreateWithoutCategoriaInput = {
@@ -505,6 +578,7 @@ export type FuncionUncheckedCreateWithoutCategoriaInput = {
   Estado: string
   Fecha?: Date | string | null
   salaId: number
+  peliculaId: number
   horarios?: Prisma.HorarioUncheckedCreateNestedManyWithoutFuncionInput
 }
 
@@ -543,13 +617,15 @@ export type FuncionScalarWhereInput = {
   Fecha?: Prisma.DateTimeNullableFilter<"Funcion"> | Date | string | null
   categoriaId?: Prisma.IntFilter<"Funcion"> | number
   salaId?: Prisma.IntFilter<"Funcion"> | number
+  peliculaId?: Prisma.IntFilter<"Funcion"> | number
 }
 
 export type FuncionCreateWithoutHorariosInput = {
   Estado: string
   Fecha?: Date | string | null
-  categoria: Prisma.CategoriaFuncionCreateNestedOneWithoutFuncionesInput
+  categoria: Prisma.CategoriaFuncionCreateNestedOneWithoutFuncionInput
   sala: Prisma.SalaCreateNestedOneWithoutFuncionesInput
+  pelicula: Prisma.PeliculaCreateNestedOneWithoutFuncionInput
 }
 
 export type FuncionUncheckedCreateWithoutHorariosInput = {
@@ -558,6 +634,7 @@ export type FuncionUncheckedCreateWithoutHorariosInput = {
   Fecha?: Date | string | null
   categoriaId: number
   salaId: number
+  peliculaId: number
 }
 
 export type FuncionCreateOrConnectWithoutHorariosInput = {
@@ -579,8 +656,9 @@ export type FuncionUpdateToOneWithWhereWithoutHorariosInput = {
 export type FuncionUpdateWithoutHorariosInput = {
   Estado?: Prisma.StringFieldUpdateOperationsInput | string
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  categoria?: Prisma.CategoriaFuncionUpdateOneRequiredWithoutFuncionesNestedInput
+  categoria?: Prisma.CategoriaFuncionUpdateOneRequiredWithoutFuncionNestedInput
   sala?: Prisma.SalaUpdateOneRequiredWithoutFuncionesNestedInput
+  pelicula?: Prisma.PeliculaUpdateOneRequiredWithoutFuncionNestedInput
 }
 
 export type FuncionUncheckedUpdateWithoutHorariosInput = {
@@ -589,13 +667,58 @@ export type FuncionUncheckedUpdateWithoutHorariosInput = {
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
   salaId?: Prisma.IntFieldUpdateOperationsInput | number
+  peliculaId?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type FuncionCreateWithoutPeliculaInput = {
+  Estado: string
+  Fecha?: Date | string | null
+  horarios?: Prisma.HorarioCreateNestedManyWithoutFuncionInput
+  categoria: Prisma.CategoriaFuncionCreateNestedOneWithoutFuncionInput
+  sala: Prisma.SalaCreateNestedOneWithoutFuncionesInput
+}
+
+export type FuncionUncheckedCreateWithoutPeliculaInput = {
+  Id?: number
+  Estado: string
+  Fecha?: Date | string | null
+  categoriaId: number
+  salaId: number
+  horarios?: Prisma.HorarioUncheckedCreateNestedManyWithoutFuncionInput
+}
+
+export type FuncionCreateOrConnectWithoutPeliculaInput = {
+  where: Prisma.FuncionWhereUniqueInput
+  create: Prisma.XOR<Prisma.FuncionCreateWithoutPeliculaInput, Prisma.FuncionUncheckedCreateWithoutPeliculaInput>
+}
+
+export type FuncionCreateManyPeliculaInputEnvelope = {
+  data: Prisma.FuncionCreateManyPeliculaInput | Prisma.FuncionCreateManyPeliculaInput[]
+  skipDuplicates?: boolean
+}
+
+export type FuncionUpsertWithWhereUniqueWithoutPeliculaInput = {
+  where: Prisma.FuncionWhereUniqueInput
+  update: Prisma.XOR<Prisma.FuncionUpdateWithoutPeliculaInput, Prisma.FuncionUncheckedUpdateWithoutPeliculaInput>
+  create: Prisma.XOR<Prisma.FuncionCreateWithoutPeliculaInput, Prisma.FuncionUncheckedCreateWithoutPeliculaInput>
+}
+
+export type FuncionUpdateWithWhereUniqueWithoutPeliculaInput = {
+  where: Prisma.FuncionWhereUniqueInput
+  data: Prisma.XOR<Prisma.FuncionUpdateWithoutPeliculaInput, Prisma.FuncionUncheckedUpdateWithoutPeliculaInput>
+}
+
+export type FuncionUpdateManyWithWhereWithoutPeliculaInput = {
+  where: Prisma.FuncionScalarWhereInput
+  data: Prisma.XOR<Prisma.FuncionUpdateManyMutationInput, Prisma.FuncionUncheckedUpdateManyWithoutPeliculaInput>
 }
 
 export type FuncionCreateWithoutSalaInput = {
   Estado: string
   Fecha?: Date | string | null
   horarios?: Prisma.HorarioCreateNestedManyWithoutFuncionInput
-  categoria: Prisma.CategoriaFuncionCreateNestedOneWithoutFuncionesInput
+  categoria: Prisma.CategoriaFuncionCreateNestedOneWithoutFuncionInput
+  pelicula: Prisma.PeliculaCreateNestedOneWithoutFuncionInput
 }
 
 export type FuncionUncheckedCreateWithoutSalaInput = {
@@ -603,6 +726,7 @@ export type FuncionUncheckedCreateWithoutSalaInput = {
   Estado: string
   Fecha?: Date | string | null
   categoriaId: number
+  peliculaId: number
   horarios?: Prisma.HorarioUncheckedCreateNestedManyWithoutFuncionInput
 }
 
@@ -637,6 +761,7 @@ export type FuncionCreateManyCategoriaInput = {
   Estado: string
   Fecha?: Date | string | null
   salaId: number
+  peliculaId: number
 }
 
 export type FuncionUpdateWithoutCategoriaInput = {
@@ -644,6 +769,7 @@ export type FuncionUpdateWithoutCategoriaInput = {
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   horarios?: Prisma.HorarioUpdateManyWithoutFuncionNestedInput
   sala?: Prisma.SalaUpdateOneRequiredWithoutFuncionesNestedInput
+  pelicula?: Prisma.PeliculaUpdateOneRequiredWithoutFuncionNestedInput
 }
 
 export type FuncionUncheckedUpdateWithoutCategoriaInput = {
@@ -651,6 +777,7 @@ export type FuncionUncheckedUpdateWithoutCategoriaInput = {
   Estado?: Prisma.StringFieldUpdateOperationsInput | string
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   salaId?: Prisma.IntFieldUpdateOperationsInput | number
+  peliculaId?: Prisma.IntFieldUpdateOperationsInput | number
   horarios?: Prisma.HorarioUncheckedUpdateManyWithoutFuncionNestedInput
 }
 
@@ -659,6 +786,40 @@ export type FuncionUncheckedUpdateManyWithoutCategoriaInput = {
   Estado?: Prisma.StringFieldUpdateOperationsInput | string
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   salaId?: Prisma.IntFieldUpdateOperationsInput | number
+  peliculaId?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type FuncionCreateManyPeliculaInput = {
+  Id?: number
+  Estado: string
+  Fecha?: Date | string | null
+  categoriaId: number
+  salaId: number
+}
+
+export type FuncionUpdateWithoutPeliculaInput = {
+  Estado?: Prisma.StringFieldUpdateOperationsInput | string
+  Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  horarios?: Prisma.HorarioUpdateManyWithoutFuncionNestedInput
+  categoria?: Prisma.CategoriaFuncionUpdateOneRequiredWithoutFuncionNestedInput
+  sala?: Prisma.SalaUpdateOneRequiredWithoutFuncionesNestedInput
+}
+
+export type FuncionUncheckedUpdateWithoutPeliculaInput = {
+  Id?: Prisma.IntFieldUpdateOperationsInput | number
+  Estado?: Prisma.StringFieldUpdateOperationsInput | string
+  Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
+  salaId?: Prisma.IntFieldUpdateOperationsInput | number
+  horarios?: Prisma.HorarioUncheckedUpdateManyWithoutFuncionNestedInput
+}
+
+export type FuncionUncheckedUpdateManyWithoutPeliculaInput = {
+  Id?: Prisma.IntFieldUpdateOperationsInput | number
+  Estado?: Prisma.StringFieldUpdateOperationsInput | string
+  Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
+  salaId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type FuncionCreateManySalaInput = {
@@ -666,13 +827,15 @@ export type FuncionCreateManySalaInput = {
   Estado: string
   Fecha?: Date | string | null
   categoriaId: number
+  peliculaId: number
 }
 
 export type FuncionUpdateWithoutSalaInput = {
   Estado?: Prisma.StringFieldUpdateOperationsInput | string
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   horarios?: Prisma.HorarioUpdateManyWithoutFuncionNestedInput
-  categoria?: Prisma.CategoriaFuncionUpdateOneRequiredWithoutFuncionesNestedInput
+  categoria?: Prisma.CategoriaFuncionUpdateOneRequiredWithoutFuncionNestedInput
+  pelicula?: Prisma.PeliculaUpdateOneRequiredWithoutFuncionNestedInput
 }
 
 export type FuncionUncheckedUpdateWithoutSalaInput = {
@@ -680,6 +843,7 @@ export type FuncionUncheckedUpdateWithoutSalaInput = {
   Estado?: Prisma.StringFieldUpdateOperationsInput | string
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
+  peliculaId?: Prisma.IntFieldUpdateOperationsInput | number
   horarios?: Prisma.HorarioUncheckedUpdateManyWithoutFuncionNestedInput
 }
 
@@ -688,6 +852,7 @@ export type FuncionUncheckedUpdateManyWithoutSalaInput = {
   Estado?: Prisma.StringFieldUpdateOperationsInput | string
   Fecha?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoriaId?: Prisma.IntFieldUpdateOperationsInput | number
+  peliculaId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -727,9 +892,11 @@ export type FuncionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   Fecha?: boolean
   categoriaId?: boolean
   salaId?: boolean
+  peliculaId?: boolean
   horarios?: boolean | Prisma.Funcion$horariosArgs<ExtArgs>
   categoria?: boolean | Prisma.CategoriaFuncionDefaultArgs<ExtArgs>
   sala?: boolean | Prisma.SalaDefaultArgs<ExtArgs>
+  pelicula?: boolean | Prisma.PeliculaDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.FuncionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["funcion"]>
 
@@ -741,13 +908,15 @@ export type FuncionSelectScalar = {
   Fecha?: boolean
   categoriaId?: boolean
   salaId?: boolean
+  peliculaId?: boolean
 }
 
-export type FuncionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id" | "Estado" | "Fecha" | "categoriaId" | "salaId", ExtArgs["result"]["funcion"]>
+export type FuncionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id" | "Estado" | "Fecha" | "categoriaId" | "salaId" | "peliculaId", ExtArgs["result"]["funcion"]>
 export type FuncionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   horarios?: boolean | Prisma.Funcion$horariosArgs<ExtArgs>
   categoria?: boolean | Prisma.CategoriaFuncionDefaultArgs<ExtArgs>
   sala?: boolean | Prisma.SalaDefaultArgs<ExtArgs>
+  pelicula?: boolean | Prisma.PeliculaDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.FuncionCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -757,6 +926,7 @@ export type $FuncionPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     horarios: Prisma.$HorarioPayload<ExtArgs>[]
     categoria: Prisma.$CategoriaFuncionPayload<ExtArgs>
     sala: Prisma.$SalaPayload<ExtArgs>
+    pelicula: Prisma.$PeliculaPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     Id: number
@@ -764,6 +934,7 @@ export type $FuncionPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     Fecha: Date | null
     categoriaId: number
     salaId: number
+    peliculaId: number
   }, ExtArgs["result"]["funcion"]>
   composites: {}
 }
@@ -1107,6 +1278,7 @@ export interface Prisma__FuncionClient<T, Null = never, ExtArgs extends runtime.
   horarios<T extends Prisma.Funcion$horariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Funcion$horariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HorarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   categoria<T extends Prisma.CategoriaFuncionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoriaFuncionDefaultArgs<ExtArgs>>): Prisma.Prisma__CategoriaFuncionClient<runtime.Types.Result.GetResult<Prisma.$CategoriaFuncionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   sala<T extends Prisma.SalaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SalaDefaultArgs<ExtArgs>>): Prisma.Prisma__SalaClient<runtime.Types.Result.GetResult<Prisma.$SalaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  pelicula<T extends Prisma.PeliculaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PeliculaDefaultArgs<ExtArgs>>): Prisma.Prisma__PeliculaClient<runtime.Types.Result.GetResult<Prisma.$PeliculaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1141,6 +1313,7 @@ export interface FuncionFieldRefs {
   readonly Fecha: Prisma.FieldRef<"Funcion", 'DateTime'>
   readonly categoriaId: Prisma.FieldRef<"Funcion", 'Int'>
   readonly salaId: Prisma.FieldRef<"Funcion", 'Int'>
+  readonly peliculaId: Prisma.FieldRef<"Funcion", 'Int'>
 }
     
 

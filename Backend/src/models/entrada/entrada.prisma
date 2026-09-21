@@ -1,4 +1,10 @@
 model Entrada {
-    Id      Int @id @default(autoincrement())
-    Tipo    String
+    Id              Int @id @default(autoincrement())
+    Tipo            String
+    tipoEntrada     Tipo_entrada @relation(fields: [tipoEntradaId], references: [Id])    
+    tipoEntradaId   Int
+    venta           Venta @relation(fields: [ventaId], references: [Id])
+    ventaId         Int
+    horario         Horario @relation(fields: [horarioId], references: [Id])
+    horarioId       Int
 }

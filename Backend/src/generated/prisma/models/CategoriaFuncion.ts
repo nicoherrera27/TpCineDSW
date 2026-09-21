@@ -204,14 +204,14 @@ export type CategoriaFuncionWhereInput = {
   Id?: Prisma.IntFilter<"CategoriaFuncion"> | number
   descripcion?: Prisma.StringFilter<"CategoriaFuncion"> | string
   precio?: Prisma.IntFilter<"CategoriaFuncion"> | number
-  funciones?: Prisma.FuncionListRelationFilter
+  funcion?: Prisma.FuncionListRelationFilter
 }
 
 export type CategoriaFuncionOrderByWithRelationInput = {
   Id?: Prisma.SortOrder
   descripcion?: Prisma.SortOrder
   precio?: Prisma.SortOrder
-  funciones?: Prisma.FuncionOrderByRelationAggregateInput
+  funcion?: Prisma.FuncionOrderByRelationAggregateInput
   _relevance?: Prisma.CategoriaFuncionOrderByRelevanceInput
 }
 
@@ -222,7 +222,7 @@ export type CategoriaFuncionWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.CategoriaFuncionWhereInput | Prisma.CategoriaFuncionWhereInput[]
   descripcion?: Prisma.StringFilter<"CategoriaFuncion"> | string
   precio?: Prisma.IntFilter<"CategoriaFuncion"> | number
-  funciones?: Prisma.FuncionListRelationFilter
+  funcion?: Prisma.FuncionListRelationFilter
 }, "Id">
 
 export type CategoriaFuncionOrderByWithAggregationInput = {
@@ -248,27 +248,27 @@ export type CategoriaFuncionScalarWhereWithAggregatesInput = {
 export type CategoriaFuncionCreateInput = {
   descripcion: string
   precio: number
-  funciones?: Prisma.FuncionCreateNestedManyWithoutCategoriaInput
+  funcion?: Prisma.FuncionCreateNestedManyWithoutCategoriaInput
 }
 
 export type CategoriaFuncionUncheckedCreateInput = {
   Id?: number
   descripcion: string
   precio: number
-  funciones?: Prisma.FuncionUncheckedCreateNestedManyWithoutCategoriaInput
+  funcion?: Prisma.FuncionUncheckedCreateNestedManyWithoutCategoriaInput
 }
 
 export type CategoriaFuncionUpdateInput = {
   descripcion?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.IntFieldUpdateOperationsInput | number
-  funciones?: Prisma.FuncionUpdateManyWithoutCategoriaNestedInput
+  funcion?: Prisma.FuncionUpdateManyWithoutCategoriaNestedInput
 }
 
 export type CategoriaFuncionUncheckedUpdateInput = {
   Id?: Prisma.IntFieldUpdateOperationsInput | number
   descripcion?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.IntFieldUpdateOperationsInput | number
-  funciones?: Prisma.FuncionUncheckedUpdateManyWithoutCategoriaNestedInput
+  funcion?: Prisma.FuncionUncheckedUpdateManyWithoutCategoriaNestedInput
 }
 
 export type CategoriaFuncionCreateManyInput = {
@@ -339,53 +339,53 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type CategoriaFuncionCreateNestedOneWithoutFuncionesInput = {
-  create?: Prisma.XOR<Prisma.CategoriaFuncionCreateWithoutFuncionesInput, Prisma.CategoriaFuncionUncheckedCreateWithoutFuncionesInput>
-  connectOrCreate?: Prisma.CategoriaFuncionCreateOrConnectWithoutFuncionesInput
+export type CategoriaFuncionCreateNestedOneWithoutFuncionInput = {
+  create?: Prisma.XOR<Prisma.CategoriaFuncionCreateWithoutFuncionInput, Prisma.CategoriaFuncionUncheckedCreateWithoutFuncionInput>
+  connectOrCreate?: Prisma.CategoriaFuncionCreateOrConnectWithoutFuncionInput
   connect?: Prisma.CategoriaFuncionWhereUniqueInput
 }
 
-export type CategoriaFuncionUpdateOneRequiredWithoutFuncionesNestedInput = {
-  create?: Prisma.XOR<Prisma.CategoriaFuncionCreateWithoutFuncionesInput, Prisma.CategoriaFuncionUncheckedCreateWithoutFuncionesInput>
-  connectOrCreate?: Prisma.CategoriaFuncionCreateOrConnectWithoutFuncionesInput
-  upsert?: Prisma.CategoriaFuncionUpsertWithoutFuncionesInput
+export type CategoriaFuncionUpdateOneRequiredWithoutFuncionNestedInput = {
+  create?: Prisma.XOR<Prisma.CategoriaFuncionCreateWithoutFuncionInput, Prisma.CategoriaFuncionUncheckedCreateWithoutFuncionInput>
+  connectOrCreate?: Prisma.CategoriaFuncionCreateOrConnectWithoutFuncionInput
+  upsert?: Prisma.CategoriaFuncionUpsertWithoutFuncionInput
   connect?: Prisma.CategoriaFuncionWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.CategoriaFuncionUpdateToOneWithWhereWithoutFuncionesInput, Prisma.CategoriaFuncionUpdateWithoutFuncionesInput>, Prisma.CategoriaFuncionUncheckedUpdateWithoutFuncionesInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CategoriaFuncionUpdateToOneWithWhereWithoutFuncionInput, Prisma.CategoriaFuncionUpdateWithoutFuncionInput>, Prisma.CategoriaFuncionUncheckedUpdateWithoutFuncionInput>
 }
 
-export type CategoriaFuncionCreateWithoutFuncionesInput = {
+export type CategoriaFuncionCreateWithoutFuncionInput = {
   descripcion: string
   precio: number
 }
 
-export type CategoriaFuncionUncheckedCreateWithoutFuncionesInput = {
+export type CategoriaFuncionUncheckedCreateWithoutFuncionInput = {
   Id?: number
   descripcion: string
   precio: number
 }
 
-export type CategoriaFuncionCreateOrConnectWithoutFuncionesInput = {
+export type CategoriaFuncionCreateOrConnectWithoutFuncionInput = {
   where: Prisma.CategoriaFuncionWhereUniqueInput
-  create: Prisma.XOR<Prisma.CategoriaFuncionCreateWithoutFuncionesInput, Prisma.CategoriaFuncionUncheckedCreateWithoutFuncionesInput>
+  create: Prisma.XOR<Prisma.CategoriaFuncionCreateWithoutFuncionInput, Prisma.CategoriaFuncionUncheckedCreateWithoutFuncionInput>
 }
 
-export type CategoriaFuncionUpsertWithoutFuncionesInput = {
-  update: Prisma.XOR<Prisma.CategoriaFuncionUpdateWithoutFuncionesInput, Prisma.CategoriaFuncionUncheckedUpdateWithoutFuncionesInput>
-  create: Prisma.XOR<Prisma.CategoriaFuncionCreateWithoutFuncionesInput, Prisma.CategoriaFuncionUncheckedCreateWithoutFuncionesInput>
+export type CategoriaFuncionUpsertWithoutFuncionInput = {
+  update: Prisma.XOR<Prisma.CategoriaFuncionUpdateWithoutFuncionInput, Prisma.CategoriaFuncionUncheckedUpdateWithoutFuncionInput>
+  create: Prisma.XOR<Prisma.CategoriaFuncionCreateWithoutFuncionInput, Prisma.CategoriaFuncionUncheckedCreateWithoutFuncionInput>
   where?: Prisma.CategoriaFuncionWhereInput
 }
 
-export type CategoriaFuncionUpdateToOneWithWhereWithoutFuncionesInput = {
+export type CategoriaFuncionUpdateToOneWithWhereWithoutFuncionInput = {
   where?: Prisma.CategoriaFuncionWhereInput
-  data: Prisma.XOR<Prisma.CategoriaFuncionUpdateWithoutFuncionesInput, Prisma.CategoriaFuncionUncheckedUpdateWithoutFuncionesInput>
+  data: Prisma.XOR<Prisma.CategoriaFuncionUpdateWithoutFuncionInput, Prisma.CategoriaFuncionUncheckedUpdateWithoutFuncionInput>
 }
 
-export type CategoriaFuncionUpdateWithoutFuncionesInput = {
+export type CategoriaFuncionUpdateWithoutFuncionInput = {
   descripcion?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type CategoriaFuncionUncheckedUpdateWithoutFuncionesInput = {
+export type CategoriaFuncionUncheckedUpdateWithoutFuncionInput = {
   Id?: Prisma.IntFieldUpdateOperationsInput | number
   descripcion?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.IntFieldUpdateOperationsInput | number
@@ -397,11 +397,11 @@ export type CategoriaFuncionUncheckedUpdateWithoutFuncionesInput = {
  */
 
 export type CategoriaFuncionCountOutputType = {
-  funciones: number
+  funcion: number
 }
 
 export type CategoriaFuncionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  funciones?: boolean | CategoriaFuncionCountOutputTypeCountFuncionesArgs
+  funcion?: boolean | CategoriaFuncionCountOutputTypeCountFuncionArgs
 }
 
 /**
@@ -417,7 +417,7 @@ export type CategoriaFuncionCountOutputTypeDefaultArgs<ExtArgs extends runtime.T
 /**
  * CategoriaFuncionCountOutputType without action
  */
-export type CategoriaFuncionCountOutputTypeCountFuncionesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type CategoriaFuncionCountOutputTypeCountFuncionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.FuncionWhereInput
 }
 
@@ -426,7 +426,7 @@ export type CategoriaFuncionSelect<ExtArgs extends runtime.Types.Extensions.Inte
   Id?: boolean
   descripcion?: boolean
   precio?: boolean
-  funciones?: boolean | Prisma.CategoriaFuncion$funcionesArgs<ExtArgs>
+  funcion?: boolean | Prisma.CategoriaFuncion$funcionArgs<ExtArgs>
   _count?: boolean | Prisma.CategoriaFuncionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["categoriaFuncion"]>
 
@@ -440,14 +440,14 @@ export type CategoriaFuncionSelectScalar = {
 
 export type CategoriaFuncionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id" | "descripcion" | "precio", ExtArgs["result"]["categoriaFuncion"]>
 export type CategoriaFuncionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  funciones?: boolean | Prisma.CategoriaFuncion$funcionesArgs<ExtArgs>
+  funcion?: boolean | Prisma.CategoriaFuncion$funcionArgs<ExtArgs>
   _count?: boolean | Prisma.CategoriaFuncionCountOutputTypeDefaultArgs<ExtArgs>
 }
 
 export type $CategoriaFuncionPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "CategoriaFuncion"
   objects: {
-    funciones: Prisma.$FuncionPayload<ExtArgs>[]
+    funcion: Prisma.$FuncionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     Id: number
@@ -793,7 +793,7 @@ readonly fields: CategoriaFuncionFieldRefs;
  */
 export interface Prisma__CategoriaFuncionClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  funciones<T extends Prisma.CategoriaFuncion$funcionesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoriaFuncion$funcionesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FuncionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  funcion<T extends Prisma.CategoriaFuncion$funcionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoriaFuncion$funcionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FuncionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1174,9 +1174,9 @@ export type CategoriaFuncionDeleteManyArgs<ExtArgs extends runtime.Types.Extensi
 }
 
 /**
- * CategoriaFuncion.funciones
+ * CategoriaFuncion.funcion
  */
-export type CategoriaFuncion$funcionesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type CategoriaFuncion$funcionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the Funcion
    */

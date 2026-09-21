@@ -224,6 +224,7 @@ export type UsuarioWhereInput = {
   Nombre?: Prisma.StringFilter<"Usuario"> | string
   Apellido?: Prisma.StringFilter<"Usuario"> | string
   Rol?: Prisma.EnumRolUsuarioFilter<"Usuario"> | $Enums.RolUsuario
+  ventas?: Prisma.VentaListRelationFilter
 }
 
 export type UsuarioOrderByWithRelationInput = {
@@ -233,6 +234,7 @@ export type UsuarioOrderByWithRelationInput = {
   Nombre?: Prisma.SortOrder
   Apellido?: Prisma.SortOrder
   Rol?: Prisma.SortOrder
+  ventas?: Prisma.VentaOrderByRelationAggregateInput
   _relevance?: Prisma.UsuarioOrderByRelevanceInput
 }
 
@@ -246,6 +248,7 @@ export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
   Nombre?: Prisma.StringFilter<"Usuario"> | string
   Apellido?: Prisma.StringFilter<"Usuario"> | string
   Rol?: Prisma.EnumRolUsuarioFilter<"Usuario"> | $Enums.RolUsuario
+  ventas?: Prisma.VentaListRelationFilter
 }, "Id" | "Email">
 
 export type UsuarioOrderByWithAggregationInput = {
@@ -280,6 +283,7 @@ export type UsuarioCreateInput = {
   Nombre: string
   Apellido: string
   Rol?: $Enums.RolUsuario
+  ventas?: Prisma.VentaCreateNestedManyWithoutCompradorInput
 }
 
 export type UsuarioUncheckedCreateInput = {
@@ -289,6 +293,7 @@ export type UsuarioUncheckedCreateInput = {
   Nombre: string
   Apellido: string
   Rol?: $Enums.RolUsuario
+  ventas?: Prisma.VentaUncheckedCreateNestedManyWithoutCompradorInput
 }
 
 export type UsuarioUpdateInput = {
@@ -297,6 +302,7 @@ export type UsuarioUpdateInput = {
   Nombre?: Prisma.StringFieldUpdateOperationsInput | string
   Apellido?: Prisma.StringFieldUpdateOperationsInput | string
   Rol?: Prisma.EnumRolUsuarioFieldUpdateOperationsInput | $Enums.RolUsuario
+  ventas?: Prisma.VentaUpdateManyWithoutCompradorNestedInput
 }
 
 export type UsuarioUncheckedUpdateInput = {
@@ -306,6 +312,7 @@ export type UsuarioUncheckedUpdateInput = {
   Nombre?: Prisma.StringFieldUpdateOperationsInput | string
   Apellido?: Prisma.StringFieldUpdateOperationsInput | string
   Rol?: Prisma.EnumRolUsuarioFieldUpdateOperationsInput | $Enums.RolUsuario
+  ventas?: Prisma.VentaUncheckedUpdateManyWithoutCompradorNestedInput
 }
 
 export type UsuarioCreateManyInput = {
@@ -375,10 +382,108 @@ export type UsuarioSumOrderByAggregateInput = {
   Id?: Prisma.SortOrder
 }
 
+export type UsuarioScalarRelationFilter = {
+  is?: Prisma.UsuarioWhereInput
+  isNot?: Prisma.UsuarioWhereInput
+}
+
 export type EnumRolUsuarioFieldUpdateOperationsInput = {
   set?: $Enums.RolUsuario
 }
 
+export type UsuarioCreateNestedOneWithoutVentasInput = {
+  create?: Prisma.XOR<Prisma.UsuarioCreateWithoutVentasInput, Prisma.UsuarioUncheckedCreateWithoutVentasInput>
+  connectOrCreate?: Prisma.UsuarioCreateOrConnectWithoutVentasInput
+  connect?: Prisma.UsuarioWhereUniqueInput
+}
+
+export type UsuarioUpdateOneRequiredWithoutVentasNestedInput = {
+  create?: Prisma.XOR<Prisma.UsuarioCreateWithoutVentasInput, Prisma.UsuarioUncheckedCreateWithoutVentasInput>
+  connectOrCreate?: Prisma.UsuarioCreateOrConnectWithoutVentasInput
+  upsert?: Prisma.UsuarioUpsertWithoutVentasInput
+  connect?: Prisma.UsuarioWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UsuarioUpdateToOneWithWhereWithoutVentasInput, Prisma.UsuarioUpdateWithoutVentasInput>, Prisma.UsuarioUncheckedUpdateWithoutVentasInput>
+}
+
+export type UsuarioCreateWithoutVentasInput = {
+  Email: string
+  Contrasenia: string
+  Nombre: string
+  Apellido: string
+  Rol?: $Enums.RolUsuario
+}
+
+export type UsuarioUncheckedCreateWithoutVentasInput = {
+  Id?: number
+  Email: string
+  Contrasenia: string
+  Nombre: string
+  Apellido: string
+  Rol?: $Enums.RolUsuario
+}
+
+export type UsuarioCreateOrConnectWithoutVentasInput = {
+  where: Prisma.UsuarioWhereUniqueInput
+  create: Prisma.XOR<Prisma.UsuarioCreateWithoutVentasInput, Prisma.UsuarioUncheckedCreateWithoutVentasInput>
+}
+
+export type UsuarioUpsertWithoutVentasInput = {
+  update: Prisma.XOR<Prisma.UsuarioUpdateWithoutVentasInput, Prisma.UsuarioUncheckedUpdateWithoutVentasInput>
+  create: Prisma.XOR<Prisma.UsuarioCreateWithoutVentasInput, Prisma.UsuarioUncheckedCreateWithoutVentasInput>
+  where?: Prisma.UsuarioWhereInput
+}
+
+export type UsuarioUpdateToOneWithWhereWithoutVentasInput = {
+  where?: Prisma.UsuarioWhereInput
+  data: Prisma.XOR<Prisma.UsuarioUpdateWithoutVentasInput, Prisma.UsuarioUncheckedUpdateWithoutVentasInput>
+}
+
+export type UsuarioUpdateWithoutVentasInput = {
+  Email?: Prisma.StringFieldUpdateOperationsInput | string
+  Contrasenia?: Prisma.StringFieldUpdateOperationsInput | string
+  Nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  Apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  Rol?: Prisma.EnumRolUsuarioFieldUpdateOperationsInput | $Enums.RolUsuario
+}
+
+export type UsuarioUncheckedUpdateWithoutVentasInput = {
+  Id?: Prisma.IntFieldUpdateOperationsInput | number
+  Email?: Prisma.StringFieldUpdateOperationsInput | string
+  Contrasenia?: Prisma.StringFieldUpdateOperationsInput | string
+  Nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  Apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  Rol?: Prisma.EnumRolUsuarioFieldUpdateOperationsInput | $Enums.RolUsuario
+}
+
+
+/**
+ * Count Type UsuarioCountOutputType
+ */
+
+export type UsuarioCountOutputType = {
+  ventas: number
+}
+
+export type UsuarioCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  ventas?: boolean | UsuarioCountOutputTypeCountVentasArgs
+}
+
+/**
+ * UsuarioCountOutputType without action
+ */
+export type UsuarioCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UsuarioCountOutputType
+   */
+  select?: Prisma.UsuarioCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UsuarioCountOutputType without action
+ */
+export type UsuarioCountOutputTypeCountVentasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.VentaWhereInput
+}
 
 
 export type UsuarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -388,6 +493,8 @@ export type UsuarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   Nombre?: boolean
   Apellido?: boolean
   Rol?: boolean
+  ventas?: boolean | Prisma.Usuario$ventasArgs<ExtArgs>
+  _count?: boolean | Prisma.UsuarioCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["usuario"]>
 
 
@@ -402,10 +509,16 @@ export type UsuarioSelectScalar = {
 }
 
 export type UsuarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id" | "Email" | "Contrasenia" | "Nombre" | "Apellido" | "Rol", ExtArgs["result"]["usuario"]>
+export type UsuarioInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  ventas?: boolean | Prisma.Usuario$ventasArgs<ExtArgs>
+  _count?: boolean | Prisma.UsuarioCountOutputTypeDefaultArgs<ExtArgs>
+}
 
 export type $UsuarioPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Usuario"
-  objects: {}
+  objects: {
+    ventas: Prisma.$VentaPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     Id: number
     Email: string
@@ -753,6 +866,7 @@ readonly fields: UsuarioFieldRefs;
  */
 export interface Prisma__UsuarioClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  ventas<T extends Prisma.Usuario$ventasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Usuario$ventasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VentaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -805,6 +919,10 @@ export type UsuarioFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
+  /**
    * Filter, which Usuario to fetch.
    */
   where: Prisma.UsuarioWhereUniqueInput
@@ -823,6 +941,10 @@ export type UsuarioFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
+  /**
    * Filter, which Usuario to fetch.
    */
   where: Prisma.UsuarioWhereUniqueInput
@@ -840,6 +962,10 @@ export type UsuarioFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the Usuario
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
   /**
    * Filter, which Usuario to fetch.
    */
@@ -889,6 +1015,10 @@ export type UsuarioFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
+  /**
    * Filter, which Usuario to fetch.
    */
   where?: Prisma.UsuarioWhereInput
@@ -936,6 +1066,10 @@ export type UsuarioFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Usuario
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
   /**
    * Filter, which Usuarios to fetch.
    */
@@ -985,6 +1119,10 @@ export type UsuarioCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
+  /**
    * The data needed to create a Usuario.
    */
   data: Prisma.XOR<Prisma.UsuarioCreateInput, Prisma.UsuarioUncheckedCreateInput>
@@ -1013,6 +1151,10 @@ export type UsuarioUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Usuario
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
   /**
    * The data needed to update a Usuario.
    */
@@ -1054,6 +1196,10 @@ export type UsuarioUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
+  /**
    * The filter to search for the Usuario to update in case it exists.
    */
   where: Prisma.UsuarioWhereUniqueInput
@@ -1080,6 +1226,10 @@ export type UsuarioDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
+  /**
    * Filter which Usuario to delete.
    */
   where: Prisma.UsuarioWhereUniqueInput
@@ -1100,6 +1250,30 @@ export type UsuarioDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
+ * Usuario.ventas
+ */
+export type Usuario$ventasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Venta
+   */
+  select?: Prisma.VentaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Venta
+   */
+  omit?: Prisma.VentaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VentaInclude<ExtArgs> | null
+  where?: Prisma.VentaWhereInput
+  orderBy?: Prisma.VentaOrderByWithRelationInput | Prisma.VentaOrderByWithRelationInput[]
+  cursor?: Prisma.VentaWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.VentaScalarFieldEnum | Prisma.VentaScalarFieldEnum[]
+}
+
+/**
  * Usuario without action
  */
 export type UsuarioDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1111,4 +1285,8 @@ export type UsuarioDefaultArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Usuario
    */
   omit?: Prisma.UsuarioOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsuarioInclude<ExtArgs> | null
 }

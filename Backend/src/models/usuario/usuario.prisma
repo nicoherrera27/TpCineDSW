@@ -10,4 +10,5 @@ model Usuario {
   Nombre      String
   Apellido    String
   Rol         RolUsuario @default(usuario)
+  ventas      Venta[]
 }

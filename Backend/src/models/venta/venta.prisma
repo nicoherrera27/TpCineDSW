@@ -1,0 +1,9 @@
+model Venta {
+    Id              Int    @id @default(autoincrement())
+    Costo           Int
+    fecha_hora      DateTime @default(now())
+    precio_total    Int
+    comprador       Usuario @relation(fields: [compradorId], references: [Id])
+    compradorId     Int
+    entradas        Entrada[]
+}

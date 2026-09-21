@@ -23,6 +23,11 @@ export * from './enums';
  */
 export type CategoriaFuncion = Prisma.CategoriaFuncionModel
 /**
+ * Model Entrada
+ * 
+ */
+export type Entrada = Prisma.EntradaModel
+/**
  * Model Funcion
  * 
  */
@@ -43,7 +48,17 @@ export type Pelicula = Prisma.PeliculaModel
  */
 export type Sala = Prisma.SalaModel
 /**
+ * Model Tipo_entrada
+ * 
+ */
+export type Tipo_entrada = Prisma.Tipo_entradaModel
+/**
  * Model Usuario
  * 
  */
 export type Usuario = Prisma.UsuarioModel
+/**
+ * Model Venta
+ * 
+ */
+export type Venta = Prisma.VentaModel

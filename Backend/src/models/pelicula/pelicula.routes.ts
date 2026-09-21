@@ -1,12 +1,11 @@
 import {Router} from 'express';
-import {createPelicula, getPelicula, getPeliculas} from './pelicula.controller';
+import {getPeliculas,createPelicula, getPelicula, deletePelicula} from './pelicula.controller';
 import {buscarTMDBPeliculas} from "../../lib/tmdb";
 
 export const peliculaRouter = Router();
 
 peliculaRouter.get('/', getPeliculas);
-//peliculaRouter.get('/:id', getPelicula);
-peliculaRouter.post('/:tmdbId', createPelicula);
 peliculaRouter.get('/:query', getPelicula); 
+peliculaRouter.post('/:tmdbId', createPelicula);
 //peliculaRouter.put('/:id', sanitizePeliculaInput, updatePelicula);
-//peliculaRouter.delete('/:id', deletePelicula);
+peliculaRouter.delete('/:id', deletePelicula);

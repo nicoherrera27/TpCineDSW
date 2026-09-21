@@ -52,11 +52,14 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   CategoriaFuncion: 'CategoriaFuncion',
+  Entrada: 'Entrada',
   Funcion: 'Funcion',
   Horario: 'Horario',
   Pelicula: 'Pelicula',
   Sala: 'Sala',
-  Usuario: 'Usuario'
+  Tipo_entrada: 'Tipo_entrada',
+  Usuario: 'Usuario',
+  Venta: 'Venta'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -84,12 +87,24 @@ export const CategoriaFuncionScalarFieldEnum = {
 export type CategoriaFuncionScalarFieldEnum = (typeof CategoriaFuncionScalarFieldEnum)[keyof typeof CategoriaFuncionScalarFieldEnum]
 
 
+export const EntradaScalarFieldEnum = {
+  Id: 'Id',
+  Tipo: 'Tipo',
+  tipoEntradaId: 'tipoEntradaId',
+  ventaId: 'ventaId',
+  horarioId: 'horarioId'
+} as const
+
+export type EntradaScalarFieldEnum = (typeof EntradaScalarFieldEnum)[keyof typeof EntradaScalarFieldEnum]
+
+
 export const FuncionScalarFieldEnum = {
   Id: 'Id',
   Estado: 'Estado',
   Fecha: 'Fecha',
   categoriaId: 'categoriaId',
-  salaId: 'salaId'
+  salaId: 'salaId',
+  peliculaId: 'peliculaId'
 } as const
 
 export type FuncionScalarFieldEnum = (typeof FuncionScalarFieldEnum)[keyof typeof FuncionScalarFieldEnum]
@@ -127,6 +142,15 @@ export const SalaScalarFieldEnum = {
 export type SalaScalarFieldEnum = (typeof SalaScalarFieldEnum)[keyof typeof SalaScalarFieldEnum]
 
 
+export const Tipo_entradaScalarFieldEnum = {
+  Id: 'Id',
+  Descripcion: 'Descripcion',
+  Bonificacion: 'Bonificacion'
+} as const
+
+export type Tipo_entradaScalarFieldEnum = (typeof Tipo_entradaScalarFieldEnum)[keyof typeof Tipo_entradaScalarFieldEnum]
+
+
 export const UsuarioScalarFieldEnum = {
   Id: 'Id',
   Email: 'Email',
@@ -137,6 +161,17 @@ export const UsuarioScalarFieldEnum = {
 } as const
 
 export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
+
+
+export const VentaScalarFieldEnum = {
+  Id: 'Id',
+  Costo: 'Costo',
+  fecha_hora: 'fecha_hora',
+  precio_total: 'precio_total',
+  compradorId: 'compradorId'
+} as const
+
+export type VentaScalarFieldEnum = (typeof VentaScalarFieldEnum)[keyof typeof VentaScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -152,6 +187,13 @@ export const CategoriaFuncionOrderByRelevanceFieldEnum = {
 } as const
 
 export type CategoriaFuncionOrderByRelevanceFieldEnum = (typeof CategoriaFuncionOrderByRelevanceFieldEnum)[keyof typeof CategoriaFuncionOrderByRelevanceFieldEnum]
+
+
+export const EntradaOrderByRelevanceFieldEnum = {
+  Tipo: 'Tipo'
+} as const
+
+export type EntradaOrderByRelevanceFieldEnum = (typeof EntradaOrderByRelevanceFieldEnum)[keyof typeof EntradaOrderByRelevanceFieldEnum]
 
 
 export const NullsOrder = {
@@ -185,6 +227,14 @@ export const SalaOrderByRelevanceFieldEnum = {
 } as const
 
 export type SalaOrderByRelevanceFieldEnum = (typeof SalaOrderByRelevanceFieldEnum)[keyof typeof SalaOrderByRelevanceFieldEnum]
+
+
+export const Tipo_entradaOrderByRelevanceFieldEnum = {
+  Descripcion: 'Descripcion',
+  Bonificacion: 'Bonificacion'
+} as const
+
+export type Tipo_entradaOrderByRelevanceFieldEnum = (typeof Tipo_entradaOrderByRelevanceFieldEnum)[keyof typeof Tipo_entradaOrderByRelevanceFieldEnum]
 
 
 export const UsuarioOrderByRelevanceFieldEnum = {

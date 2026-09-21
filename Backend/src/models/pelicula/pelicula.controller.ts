@@ -2,6 +2,34 @@ import {prisma} from "../../lib/prisma";
 import {Request, Response} from "express";
 import {fetchTMDBPeliculas, buscarTMDBPeliculas, fetchGenerosTMDB} from "../../lib/tmdb";
 
+async function getPeliculas(req: Request, res: Response){
+  try{
+    const peliculas = await prisma.pelicula.findMany();
+    res.status(201).json({message: 'Peliculas encontradas', data: peliculas});
+  }
+  catch(error:any){
+    res.status(500).json({ message: error.message })
+  }
+}
+
+async function getPelicula(req: Request, res: Response){
+  try{
+    const busqueda = req.params.query as string;
+    const peliculas = await buscarTMDBPeliculas(busqueda);
+    const generos = await fetchGenerosTMDB();
+
+    const resultados = peliculas.results.map((peli:any) => ({
+      ...peli,
+      generos: peli.genre_ids.map((id:number) => generos.find((gen:any) => gen.id === id)?.name || 'Otro').join(', ')
+    })); //aca paso de idgenero a nombre del genero y uso el .join para dejar un espacio y que no quede genero,genero,genero
+
+    res.status(200).json({message: 'Peliculas encontradas', data: resultados});
+  }
+  catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 async function createPelicula (req: Request, res: Response){
   try{
     const { tmdbId } = req.params;
@@ -26,33 +54,18 @@ async function createPelicula (req: Request, res: Response){
   }
 }
 
-async function getPelicula(req: Request, res: Response){
+async function deletePelicula(req: Request, res: Response){
   try{
-    const busqueda = req.params.query as string;
-    const peliculas = await buscarTMDBPeliculas(busqueda);
-    const generos = await fetchGenerosTMDB();
-
-    const resultados = peliculas.results.map((peli:any) => ({
-      ...peli,
-      generos: peli.genre_ids.map((id:number) => generos.find((gen:any) => gen.id === id)?.name || 'Otro').join(', ')
-    })); //aca paso de idgenero a nombre del genero y uso el .join para dejar un espacio y que no quede genero,genero,genero
-
-    res.status(200).json({message: 'Peliculas encontradas', data: resultados});
+    const { id } = req.params;
+    const peliculaEliminada = await prisma.pelicula.delete({
+      where: { Id: Number(id) }
+    });
+    res.status(200).json({ message: 'Pelicula eliminada', data: peliculaEliminada });
   }
-  catch (error: any) {
+  catch(error: any){
     res.status(500).json({ message: error.message });
   }
 }
 
-async function getPeliculas(req: Request, res: Response){
-  try{
-    const peliculas = await prisma.pelicula.findMany();
-    res.status(201).json({message: 'Peliculas encontradas', data: peliculas});
-  }
-  catch(error:any){
-    res.status(500).json({ message: error.message })
-  }
-}
-
-export {createPelicula, getPelicula, getPeliculas};
+export {getPeliculas, createPelicula, getPelicula, deletePelicula};
  

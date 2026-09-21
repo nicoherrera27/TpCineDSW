@@ -7,4 +7,5 @@ model Pelicula {
   FechaEstreno String?
   Poster       String?
   FechaAlta    DateTime @default(now())
+  funcion     Funcion[]
 }

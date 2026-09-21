@@ -9,9 +9,12 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/CategoriaFuncion'
+export type * from './models/Entrada'
 export type * from './models/Funcion'
 export type * from './models/Horario'
 export type * from './models/Pelicula'
 export type * from './models/Sala'
+export type * from './models/Tipo_entrada'
 export type * from './models/Usuario'
+export type * from './models/Venta'
 export type * from './commonInputTypes'

@@ -1,0 +1,25 @@
+### GET ALL
+GET http://localhost:3000/api/ventas
+
+### GET ONE
+GET http://localhost:3000/api/ventas/1
+
+###POST
+POST http://localhost:3000/api/ventas
+Content-Type: application/json
+
+{
+  "costo": "6000", 
+  "precio_total": "10000"      
+}
+
+### PUT
+PUT http://localhost:3000/api/ventas/1
+Content-Type: application/json
+
+{
+  "costo": "8000", 
+  "precio_total": "12000" 
+}
+### DELETE
+DELETE http://localhost:3000/api/ventas/1

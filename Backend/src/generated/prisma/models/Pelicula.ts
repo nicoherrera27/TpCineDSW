@@ -244,6 +244,7 @@ export type PeliculaWhereInput = {
   FechaEstreno?: Prisma.StringNullableFilter<"Pelicula"> | string | null
   Poster?: Prisma.StringNullableFilter<"Pelicula"> | string | null
   FechaAlta?: Prisma.DateTimeFilter<"Pelicula"> | Date | string
+  funcion?: Prisma.FuncionListRelationFilter
 }
 
 export type PeliculaOrderByWithRelationInput = {
@@ -255,6 +256,7 @@ export type PeliculaOrderByWithRelationInput = {
   FechaEstreno?: Prisma.SortOrderInput | Prisma.SortOrder
   Poster?: Prisma.SortOrderInput | Prisma.SortOrder
   FechaAlta?: Prisma.SortOrder
+  funcion?: Prisma.FuncionOrderByRelationAggregateInput
   _relevance?: Prisma.PeliculaOrderByRelevanceInput
 }
 
@@ -270,6 +272,7 @@ export type PeliculaWhereUniqueInput = Prisma.AtLeast<{
   FechaEstreno?: Prisma.StringNullableFilter<"Pelicula"> | string | null
   Poster?: Prisma.StringNullableFilter<"Pelicula"> | string | null
   FechaAlta?: Prisma.DateTimeFilter<"Pelicula"> | Date | string
+  funcion?: Prisma.FuncionListRelationFilter
 }, "Id" | "TmdbId" | "Titulo">
 
 export type PeliculaOrderByWithAggregationInput = {
@@ -310,6 +313,7 @@ export type PeliculaCreateInput = {
   FechaEstreno?: string | null
   Poster?: string | null
   FechaAlta?: Date | string
+  funcion?: Prisma.FuncionCreateNestedManyWithoutPeliculaInput
 }
 
 export type PeliculaUncheckedCreateInput = {
@@ -321,6 +325,7 @@ export type PeliculaUncheckedCreateInput = {
   FechaEstreno?: string | null
   Poster?: string | null
   FechaAlta?: Date | string
+  funcion?: Prisma.FuncionUncheckedCreateNestedManyWithoutPeliculaInput
 }
 
 export type PeliculaUpdateInput = {
@@ -331,6 +336,7 @@ export type PeliculaUpdateInput = {
   FechaEstreno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Poster?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   FechaAlta?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  funcion?: Prisma.FuncionUpdateManyWithoutPeliculaNestedInput
 }
 
 export type PeliculaUncheckedUpdateInput = {
@@ -342,6 +348,7 @@ export type PeliculaUncheckedUpdateInput = {
   FechaEstreno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Poster?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   FechaAlta?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  funcion?: Prisma.FuncionUncheckedUpdateManyWithoutPeliculaNestedInput
 }
 
 export type PeliculaCreateManyInput = {
@@ -374,6 +381,11 @@ export type PeliculaUncheckedUpdateManyInput = {
   FechaEstreno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Poster?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   FechaAlta?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type PeliculaScalarRelationFilter = {
+  is?: Prisma.PeliculaWhereInput
+  isNot?: Prisma.PeliculaWhereInput
 }
 
 export type PeliculaOrderByRelevanceInput = {
@@ -425,10 +437,111 @@ export type PeliculaSumOrderByAggregateInput = {
   TmdbId?: Prisma.SortOrder
 }
 
+export type PeliculaCreateNestedOneWithoutFuncionInput = {
+  create?: Prisma.XOR<Prisma.PeliculaCreateWithoutFuncionInput, Prisma.PeliculaUncheckedCreateWithoutFuncionInput>
+  connectOrCreate?: Prisma.PeliculaCreateOrConnectWithoutFuncionInput
+  connect?: Prisma.PeliculaWhereUniqueInput
+}
+
+export type PeliculaUpdateOneRequiredWithoutFuncionNestedInput = {
+  create?: Prisma.XOR<Prisma.PeliculaCreateWithoutFuncionInput, Prisma.PeliculaUncheckedCreateWithoutFuncionInput>
+  connectOrCreate?: Prisma.PeliculaCreateOrConnectWithoutFuncionInput
+  upsert?: Prisma.PeliculaUpsertWithoutFuncionInput
+  connect?: Prisma.PeliculaWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PeliculaUpdateToOneWithWhereWithoutFuncionInput, Prisma.PeliculaUpdateWithoutFuncionInput>, Prisma.PeliculaUncheckedUpdateWithoutFuncionInput>
+}
+
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
 
+export type PeliculaCreateWithoutFuncionInput = {
+  TmdbId: number
+  Titulo: string
+  Generos: string
+  Sinopsis?: string | null
+  FechaEstreno?: string | null
+  Poster?: string | null
+  FechaAlta?: Date | string
+}
+
+export type PeliculaUncheckedCreateWithoutFuncionInput = {
+  Id?: number
+  TmdbId: number
+  Titulo: string
+  Generos: string
+  Sinopsis?: string | null
+  FechaEstreno?: string | null
+  Poster?: string | null
+  FechaAlta?: Date | string
+}
+
+export type PeliculaCreateOrConnectWithoutFuncionInput = {
+  where: Prisma.PeliculaWhereUniqueInput
+  create: Prisma.XOR<Prisma.PeliculaCreateWithoutFuncionInput, Prisma.PeliculaUncheckedCreateWithoutFuncionInput>
+}
+
+export type PeliculaUpsertWithoutFuncionInput = {
+  update: Prisma.XOR<Prisma.PeliculaUpdateWithoutFuncionInput, Prisma.PeliculaUncheckedUpdateWithoutFuncionInput>
+  create: Prisma.XOR<Prisma.PeliculaCreateWithoutFuncionInput, Prisma.PeliculaUncheckedCreateWithoutFuncionInput>
+  where?: Prisma.PeliculaWhereInput
+}
+
+export type PeliculaUpdateToOneWithWhereWithoutFuncionInput = {
+  where?: Prisma.PeliculaWhereInput
+  data: Prisma.XOR<Prisma.PeliculaUpdateWithoutFuncionInput, Prisma.PeliculaUncheckedUpdateWithoutFuncionInput>
+}
+
+export type PeliculaUpdateWithoutFuncionInput = {
+  TmdbId?: Prisma.IntFieldUpdateOperationsInput | number
+  Titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  Generos?: Prisma.StringFieldUpdateOperationsInput | string
+  Sinopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FechaEstreno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Poster?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FechaAlta?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type PeliculaUncheckedUpdateWithoutFuncionInput = {
+  Id?: Prisma.IntFieldUpdateOperationsInput | number
+  TmdbId?: Prisma.IntFieldUpdateOperationsInput | number
+  Titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  Generos?: Prisma.StringFieldUpdateOperationsInput | string
+  Sinopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FechaEstreno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Poster?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FechaAlta?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type PeliculaCountOutputType
+ */
+
+export type PeliculaCountOutputType = {
+  funcion: number
+}
+
+export type PeliculaCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  funcion?: boolean | PeliculaCountOutputTypeCountFuncionArgs
+}
+
+/**
+ * PeliculaCountOutputType without action
+ */
+export type PeliculaCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PeliculaCountOutputType
+   */
+  select?: Prisma.PeliculaCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * PeliculaCountOutputType without action
+ */
+export type PeliculaCountOutputTypeCountFuncionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FuncionWhereInput
+}
 
 
 export type PeliculaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -440,6 +553,8 @@ export type PeliculaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   FechaEstreno?: boolean
   Poster?: boolean
   FechaAlta?: boolean
+  funcion?: boolean | Prisma.Pelicula$funcionArgs<ExtArgs>
+  _count?: boolean | Prisma.PeliculaCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pelicula"]>
 
 
@@ -456,10 +571,16 @@ export type PeliculaSelectScalar = {
 }
 
 export type PeliculaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id" | "TmdbId" | "Titulo" | "Generos" | "Sinopsis" | "FechaEstreno" | "Poster" | "FechaAlta", ExtArgs["result"]["pelicula"]>
+export type PeliculaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  funcion?: boolean | Prisma.Pelicula$funcionArgs<ExtArgs>
+  _count?: boolean | Prisma.PeliculaCountOutputTypeDefaultArgs<ExtArgs>
+}
 
 export type $PeliculaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Pelicula"
-  objects: {}
+  objects: {
+    funcion: Prisma.$FuncionPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     Id: number
     TmdbId: number
@@ -809,6 +930,7 @@ readonly fields: PeliculaFieldRefs;
  */
 export interface Prisma__PeliculaClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  funcion<T extends Prisma.Pelicula$funcionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Pelicula$funcionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FuncionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -863,6 +985,10 @@ export type PeliculaFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
+  /**
    * Filter, which Pelicula to fetch.
    */
   where: Prisma.PeliculaWhereUniqueInput
@@ -881,6 +1007,10 @@ export type PeliculaFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensio
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
+  /**
    * Filter, which Pelicula to fetch.
    */
   where: Prisma.PeliculaWhereUniqueInput
@@ -898,6 +1028,10 @@ export type PeliculaFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Omit specific fields from the Pelicula
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
   /**
    * Filter, which Pelicula to fetch.
    */
@@ -947,6 +1081,10 @@ export type PeliculaFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
+  /**
    * Filter, which Pelicula to fetch.
    */
   where?: Prisma.PeliculaWhereInput
@@ -994,6 +1132,10 @@ export type PeliculaFindManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the Pelicula
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
   /**
    * Filter, which Peliculas to fetch.
    */
@@ -1043,6 +1185,10 @@ export type PeliculaCreateArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
+  /**
    * The data needed to create a Pelicula.
    */
   data: Prisma.XOR<Prisma.PeliculaCreateInput, Prisma.PeliculaUncheckedCreateInput>
@@ -1071,6 +1217,10 @@ export type PeliculaUpdateArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Pelicula
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
   /**
    * The data needed to update a Pelicula.
    */
@@ -1112,6 +1262,10 @@ export type PeliculaUpsertArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
+  /**
    * The filter to search for the Pelicula to update in case it exists.
    */
   where: Prisma.PeliculaWhereUniqueInput
@@ -1138,6 +1292,10 @@ export type PeliculaDeleteArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
+  /**
    * Filter which Pelicula to delete.
    */
   where: Prisma.PeliculaWhereUniqueInput
@@ -1158,6 +1316,30 @@ export type PeliculaDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
 }
 
 /**
+ * Pelicula.funcion
+ */
+export type Pelicula$funcionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Funcion
+   */
+  select?: Prisma.FuncionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Funcion
+   */
+  omit?: Prisma.FuncionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FuncionInclude<ExtArgs> | null
+  where?: Prisma.FuncionWhereInput
+  orderBy?: Prisma.FuncionOrderByWithRelationInput | Prisma.FuncionOrderByWithRelationInput[]
+  cursor?: Prisma.FuncionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FuncionScalarFieldEnum | Prisma.FuncionScalarFieldEnum[]
+}
+
+/**
  * Pelicula without action
  */
 export type PeliculaDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1169,4 +1351,8 @@ export type PeliculaDefaultArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Pelicula
    */
   omit?: Prisma.PeliculaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PeliculaInclude<ExtArgs> | null
 }

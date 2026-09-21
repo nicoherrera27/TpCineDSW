@@ -205,6 +205,7 @@ export type HorarioWhereInput = {
   Hora?: Prisma.DateTimeFilter<"Horario"> | Date | string
   funcionId?: Prisma.IntFilter<"Horario"> | number
   funcion?: Prisma.XOR<Prisma.FuncionScalarRelationFilter, Prisma.FuncionWhereInput>
+  entradas?: Prisma.EntradaListRelationFilter
 }
 
 export type HorarioOrderByWithRelationInput = {
@@ -212,6 +213,7 @@ export type HorarioOrderByWithRelationInput = {
   Hora?: Prisma.SortOrder
   funcionId?: Prisma.SortOrder
   funcion?: Prisma.FuncionOrderByWithRelationInput
+  entradas?: Prisma.EntradaOrderByRelationAggregateInput
 }
 
 export type HorarioWhereUniqueInput = Prisma.AtLeast<{
@@ -222,6 +224,7 @@ export type HorarioWhereUniqueInput = Prisma.AtLeast<{
   Hora?: Prisma.DateTimeFilter<"Horario"> | Date | string
   funcionId?: Prisma.IntFilter<"Horario"> | number
   funcion?: Prisma.XOR<Prisma.FuncionScalarRelationFilter, Prisma.FuncionWhereInput>
+  entradas?: Prisma.EntradaListRelationFilter
 }, "Id">
 
 export type HorarioOrderByWithAggregationInput = {
@@ -247,23 +250,27 @@ export type HorarioScalarWhereWithAggregatesInput = {
 export type HorarioCreateInput = {
   Hora: Date | string
   funcion: Prisma.FuncionCreateNestedOneWithoutHorariosInput
+  entradas?: Prisma.EntradaCreateNestedManyWithoutHorarioInput
 }
 
 export type HorarioUncheckedCreateInput = {
   Id?: number
   Hora: Date | string
   funcionId: number
+  entradas?: Prisma.EntradaUncheckedCreateNestedManyWithoutHorarioInput
 }
 
 export type HorarioUpdateInput = {
   Hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   funcion?: Prisma.FuncionUpdateOneRequiredWithoutHorariosNestedInput
+  entradas?: Prisma.EntradaUpdateManyWithoutHorarioNestedInput
 }
 
 export type HorarioUncheckedUpdateInput = {
   Id?: Prisma.IntFieldUpdateOperationsInput | number
   Hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   funcionId?: Prisma.IntFieldUpdateOperationsInput | number
+  entradas?: Prisma.EntradaUncheckedUpdateManyWithoutHorarioNestedInput
 }
 
 export type HorarioCreateManyInput = {
@@ -280,6 +287,11 @@ export type HorarioUncheckedUpdateManyInput = {
   Id?: Prisma.IntFieldUpdateOperationsInput | number
   Hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   funcionId?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type HorarioScalarRelationFilter = {
+  is?: Prisma.HorarioWhereInput
+  isNot?: Prisma.HorarioWhereInput
 }
 
 export type HorarioListRelationFilter = {
@@ -318,6 +330,20 @@ export type HorarioMinOrderByAggregateInput = {
 export type HorarioSumOrderByAggregateInput = {
   Id?: Prisma.SortOrder
   funcionId?: Prisma.SortOrder
+}
+
+export type HorarioCreateNestedOneWithoutEntradasInput = {
+  create?: Prisma.XOR<Prisma.HorarioCreateWithoutEntradasInput, Prisma.HorarioUncheckedCreateWithoutEntradasInput>
+  connectOrCreate?: Prisma.HorarioCreateOrConnectWithoutEntradasInput
+  connect?: Prisma.HorarioWhereUniqueInput
+}
+
+export type HorarioUpdateOneRequiredWithoutEntradasNestedInput = {
+  create?: Prisma.XOR<Prisma.HorarioCreateWithoutEntradasInput, Prisma.HorarioUncheckedCreateWithoutEntradasInput>
+  connectOrCreate?: Prisma.HorarioCreateOrConnectWithoutEntradasInput
+  upsert?: Prisma.HorarioUpsertWithoutEntradasInput
+  connect?: Prisma.HorarioWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.HorarioUpdateToOneWithWhereWithoutEntradasInput, Prisma.HorarioUpdateWithoutEntradasInput>, Prisma.HorarioUncheckedUpdateWithoutEntradasInput>
 }
 
 export type HorarioCreateNestedManyWithoutFuncionInput = {
@@ -366,13 +392,53 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
+export type HorarioCreateWithoutEntradasInput = {
+  Hora: Date | string
+  funcion: Prisma.FuncionCreateNestedOneWithoutHorariosInput
+}
+
+export type HorarioUncheckedCreateWithoutEntradasInput = {
+  Id?: number
+  Hora: Date | string
+  funcionId: number
+}
+
+export type HorarioCreateOrConnectWithoutEntradasInput = {
+  where: Prisma.HorarioWhereUniqueInput
+  create: Prisma.XOR<Prisma.HorarioCreateWithoutEntradasInput, Prisma.HorarioUncheckedCreateWithoutEntradasInput>
+}
+
+export type HorarioUpsertWithoutEntradasInput = {
+  update: Prisma.XOR<Prisma.HorarioUpdateWithoutEntradasInput, Prisma.HorarioUncheckedUpdateWithoutEntradasInput>
+  create: Prisma.XOR<Prisma.HorarioCreateWithoutEntradasInput, Prisma.HorarioUncheckedCreateWithoutEntradasInput>
+  where?: Prisma.HorarioWhereInput
+}
+
+export type HorarioUpdateToOneWithWhereWithoutEntradasInput = {
+  where?: Prisma.HorarioWhereInput
+  data: Prisma.XOR<Prisma.HorarioUpdateWithoutEntradasInput, Prisma.HorarioUncheckedUpdateWithoutEntradasInput>
+}
+
+export type HorarioUpdateWithoutEntradasInput = {
+  Hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  funcion?: Prisma.FuncionUpdateOneRequiredWithoutHorariosNestedInput
+}
+
+export type HorarioUncheckedUpdateWithoutEntradasInput = {
+  Id?: Prisma.IntFieldUpdateOperationsInput | number
+  Hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  funcionId?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
 export type HorarioCreateWithoutFuncionInput = {
   Hora: Date | string
+  entradas?: Prisma.EntradaCreateNestedManyWithoutHorarioInput
 }
 
 export type HorarioUncheckedCreateWithoutFuncionInput = {
   Id?: number
   Hora: Date | string
+  entradas?: Prisma.EntradaUncheckedCreateNestedManyWithoutHorarioInput
 }
 
 export type HorarioCreateOrConnectWithoutFuncionInput = {
@@ -417,11 +483,13 @@ export type HorarioCreateManyFuncionInput = {
 
 export type HorarioUpdateWithoutFuncionInput = {
   Hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  entradas?: Prisma.EntradaUpdateManyWithoutHorarioNestedInput
 }
 
 export type HorarioUncheckedUpdateWithoutFuncionInput = {
   Id?: Prisma.IntFieldUpdateOperationsInput | number
   Hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  entradas?: Prisma.EntradaUncheckedUpdateManyWithoutHorarioNestedInput
 }
 
 export type HorarioUncheckedUpdateManyWithoutFuncionInput = {
@@ -430,12 +498,43 @@ export type HorarioUncheckedUpdateManyWithoutFuncionInput = {
 }
 
 
+/**
+ * Count Type HorarioCountOutputType
+ */
+
+export type HorarioCountOutputType = {
+  entradas: number
+}
+
+export type HorarioCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  entradas?: boolean | HorarioCountOutputTypeCountEntradasArgs
+}
+
+/**
+ * HorarioCountOutputType without action
+ */
+export type HorarioCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the HorarioCountOutputType
+   */
+  select?: Prisma.HorarioCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * HorarioCountOutputType without action
+ */
+export type HorarioCountOutputTypeCountEntradasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EntradaWhereInput
+}
+
 
 export type HorarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   Id?: boolean
   Hora?: boolean
   funcionId?: boolean
   funcion?: boolean | Prisma.FuncionDefaultArgs<ExtArgs>
+  entradas?: boolean | Prisma.Horario$entradasArgs<ExtArgs>
+  _count?: boolean | Prisma.HorarioCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["horario"]>
 
 
@@ -449,12 +548,15 @@ export type HorarioSelectScalar = {
 export type HorarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id" | "Hora" | "funcionId", ExtArgs["result"]["horario"]>
 export type HorarioInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   funcion?: boolean | Prisma.FuncionDefaultArgs<ExtArgs>
+  entradas?: boolean | Prisma.Horario$entradasArgs<ExtArgs>
+  _count?: boolean | Prisma.HorarioCountOutputTypeDefaultArgs<ExtArgs>
 }
 
 export type $HorarioPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Horario"
   objects: {
     funcion: Prisma.$FuncionPayload<ExtArgs>
+    entradas: Prisma.$EntradaPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     Id: number
@@ -801,6 +903,7 @@ readonly fields: HorarioFieldRefs;
 export interface Prisma__HorarioClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   funcion<T extends Prisma.FuncionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.FuncionDefaultArgs<ExtArgs>>): Prisma.Prisma__FuncionClient<runtime.Types.Result.GetResult<Prisma.$FuncionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  entradas<T extends Prisma.Horario$entradasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Horario$entradasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EntradaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1178,6 +1281,30 @@ export type HorarioDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Limit how many Horarios to delete.
    */
   limit?: number
+}
+
+/**
+ * Horario.entradas
+ */
+export type Horario$entradasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Entrada
+   */
+  select?: Prisma.EntradaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Entrada
+   */
+  omit?: Prisma.EntradaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EntradaInclude<ExtArgs> | null
+  where?: Prisma.EntradaWhereInput
+  orderBy?: Prisma.EntradaOrderByWithRelationInput | Prisma.EntradaOrderByWithRelationInput[]
+  cursor?: Prisma.EntradaWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EntradaScalarFieldEnum | Prisma.EntradaScalarFieldEnum[]
 }
 
 /**
