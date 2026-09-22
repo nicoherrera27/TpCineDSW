@@ -1,10 +1,10 @@
 import {Router} from 'express';
 import {getHorarios, getHorario, createHorario, updateHorario, sanitizeHorarioInput, deleteHorario} from './horario.controller';
 
-export const HorarioRouter = Router();
+export const horarioRouter = Router();
 
-HorarioRouter.get('/', getHorarios);
-HorarioRouter.get('/:id', getHorario);
-HorarioRouter.post('/', sanitizeHorarioInput, createHorario);
-HorarioRouter.put('/:id', sanitizeHorarioInput, updateHorario);
-HorarioRouter.delete('/:id', deleteHorario);
+horarioRouter.get('/', getHorarios);
+horarioRouter.get('/:id', getHorario);
+horarioRouter.post('/', sanitizeHorarioInput, createHorario);
+horarioRouter.put('/:id', sanitizeHorarioInput, updateHorario);
+horarioRouter.delete('/:id', deleteHorario);

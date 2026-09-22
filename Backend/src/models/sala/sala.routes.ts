@@ -1,10 +1,10 @@
 import {Router} from 'express';
 import {getSalas, getSala, createSala, updateSala, deleteSala, sanitizeSalaInput} from './sala.controller.js'
 
-export const SalaRouter = Router();
+export const salaRouter = Router();
 
-SalaRouter.get('/', getSalas);
-SalaRouter.get('/:id', getSala);
-SalaRouter.post('/', sanitizeSalaInput,createSala);
-SalaRouter.put('/:id', sanitizeSalaInput,updateSala);
-SalaRouter.delete('/:id', deleteSala);
+salaRouter.get('/', getSalas);
+salaRouter.get('/:id', getSala);
+salaRouter.post('/', sanitizeSalaInput,createSala);
+salaRouter.put('/:id', sanitizeSalaInput,updateSala);
+salaRouter.delete('/:id', deleteSala);

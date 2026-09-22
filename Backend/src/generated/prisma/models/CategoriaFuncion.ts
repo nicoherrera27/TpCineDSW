@@ -217,13 +217,13 @@ export type CategoriaFuncionOrderByWithRelationInput = {
 
 export type CategoriaFuncionWhereUniqueInput = Prisma.AtLeast<{
   Id?: number
+  descripcion?: string
   AND?: Prisma.CategoriaFuncionWhereInput | Prisma.CategoriaFuncionWhereInput[]
   OR?: Prisma.CategoriaFuncionWhereInput[]
   NOT?: Prisma.CategoriaFuncionWhereInput | Prisma.CategoriaFuncionWhereInput[]
-  descripcion?: Prisma.StringFilter<"CategoriaFuncion"> | string
   precio?: Prisma.IntFilter<"CategoriaFuncion"> | number
   funcion?: Prisma.FuncionListRelationFilter
-}, "Id">
+}, "Id" | "descripcion">
 
 export type CategoriaFuncionOrderByWithAggregationInput = {
   Id?: Prisma.SortOrder

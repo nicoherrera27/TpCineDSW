@@ -213,13 +213,13 @@ export type Tipo_entradaOrderByWithRelationInput = {
 
 export type Tipo_entradaWhereUniqueInput = Prisma.AtLeast<{
   Id?: number
+  Descripcion?: string
   AND?: Prisma.Tipo_entradaWhereInput | Prisma.Tipo_entradaWhereInput[]
   OR?: Prisma.Tipo_entradaWhereInput[]
   NOT?: Prisma.Tipo_entradaWhereInput | Prisma.Tipo_entradaWhereInput[]
-  Descripcion?: Prisma.StringFilter<"Tipo_entrada"> | string
   Bonificacion?: Prisma.StringFilter<"Tipo_entrada"> | string
   entradas?: Prisma.EntradaListRelationFilter
-}, "Id">
+}, "Id" | "Descripcion">
 
 export type Tipo_entradaOrderByWithAggregationInput = {
   Id?: Prisma.SortOrder

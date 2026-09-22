@@ -1,10 +1,10 @@
 import {Router} from 'express';
 import {getTipoEntradas, getTipoEntrada, createTipoEntrada, updateTipoEntrada, deleteTipoEntrada, sanitizeTipoEntradaInput} from './tipo_entrada.controller.js'
 
-export const TipoEntradaRouter = Router();
+export const tipoEntradaRouter = Router();
 
-TipoEntradaRouter.get('/', getTipoEntradas);
-TipoEntradaRouter.get('/:id', getTipoEntrada);
-TipoEntradaRouter.post('/', sanitizeTipoEntradaInput,createTipoEntrada);
-TipoEntradaRouter.put('/:id', sanitizeTipoEntradaInput,updateTipoEntrada);
-TipoEntradaRouter.delete('/:id', deleteTipoEntrada);
+tipoEntradaRouter.get('/', getTipoEntradas);
+tipoEntradaRouter.get('/:id', getTipoEntrada);
+tipoEntradaRouter.post('/', sanitizeTipoEntradaInput,createTipoEntrada);
+tipoEntradaRouter.put('/:id', sanitizeTipoEntradaInput,updateTipoEntrada);
+tipoEntradaRouter.delete('/:id', deleteTipoEntrada);

@@ -1,6 +1,6 @@
 model Tipo_entrada{
     Id              Int @id @default(autoincrement())
-    Descripcion     String
+    Descripcion     String @unique
     Bonificacion    String
     entradas        Entrada[]
 }

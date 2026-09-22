@@ -1,0 +1,25 @@
+### GET ALL
+GET http://localhost:3000/api/categoriasFunciones
+
+### GET ONE
+GET http://localhost:3000/api/categoriasFunciones/1
+
+###POST
+POST http://localhost:3000/api/categoriasFunciones
+Content-Type: application/json
+
+{
+  "descripcion": "4D",
+  "precio": 20000   
+}
+
+### PUT
+PUT http://localhost:3000/api/categoriasFunciones/1
+Content-Type: application/json
+
+{
+  "Descripcion": "IMAX", 
+  "Precio": "12000"       
+}
+### DELETE
+DELETE http://localost:3000/api/categoriasFunciones/1

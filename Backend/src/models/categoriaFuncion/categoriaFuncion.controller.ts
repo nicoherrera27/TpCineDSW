@@ -4,8 +4,8 @@ import {Request, Response, NextFunction} from "express";
 function sanitizeCategoriaFuncionInput(req: Request, res: Response, next: NextFunction) {
   // Aca se realizarian las validaciones //
   req.body.sanitizedInput = {
-    Descripcion: req.body.Descripcion,
-    Precio: req.body.Precio 
+    descripcion: req.body.descripcion,
+    precio: req.body.precio 
   }
 
   Object.keys(req.body.sanitizedInput).forEach((key) => {
@@ -20,7 +20,7 @@ function sanitizeCategoriaFuncionInput(req: Request, res: Response, next: NextFu
 
 async function getCategoriaFunciones (req: Request, res: Response){
   try {
-    const categorias_funciones = await prisma.categoria_funcion.findMany();
+    const categorias_funciones = await prisma.categoriaFuncion.findMany();
     res.status(201).json({message: 'categorias_funciones encontradas', data: categorias_funciones});
   } catch (error: any) {
     res.status(500).json({ message: error.message });
@@ -31,7 +31,7 @@ async function getCategoriaFuncion (req: Request, res: Response){
   try {
     const { id } = req.params;
 
-    const categoria_funcion = await prisma.categoria_funcion.findUnique({
+    const categoria_funcion = await prisma.categoriaFuncion.findUnique({
       where:{Id: Number(id)}
     })
     res.status(201).json({message: 'categoria_funcion encontrada', data: categoria_funcion});
@@ -42,10 +42,9 @@ async function getCategoriaFuncion (req: Request, res: Response){
 
 async function createCategoriaFuncion (req: Request, res: Response){
   try{
-    const categoria_funcionNueva = await prisma.categoria_funcion.create({
+    const categoria_funcionNueva = await prisma.categoriaFuncion.create({
       data:{
         ...req.body.sanitizedInput,
-        FechaAlta: new Date()
       }
     });
     res.status(201).json({message: 'categoria_funcion creada', data: categoria_funcionNueva});
@@ -59,7 +58,7 @@ async function updateCategoriaFuncion (req: Request, res: Response){
   try{
     const { id } = req.params;
 
-    const categoria_funcionActualizado = await prisma.categoria_funcion.update({
+    const categoria_funcionActualizado = await prisma.categoriaFuncion.update({
       where: {Id: Number(id)},
       data: req.body.sanitizedInput
     })
@@ -74,7 +73,7 @@ async function deleteCategoriaFuncion (req: Request, res: Response){
   try{
     const { id } = req.params;
 
-    const categoria_funcionEliminada = await prisma.categoria_funcion.delete({
+    const categoria_funcionEliminada = await prisma.categoriaFuncion.delete({
       where: {Id: Number(id)}
     })
     res.status(201).json({message: 'categoria_funcion eliminada', data: categoria_funcionEliminada});

@@ -1,10 +1,10 @@
 import {Router} from 'express';
 import {getEntradas, getEntrada, createEntrada, updateEntrada, deleteEntrada, sanitizeEntradaInput} from './entrada.controller.js'
 
-export const EntradaRouter = Router();
+export const entradaRouter = Router();
 
-EntradaRouter.get('/', getEntradas);
-EntradaRouter.get('/:id', getEntrada);
-EntradaRouter.post('/', sanitizeEntradaInput,createEntrada);
-EntradaRouter.put('/:id', sanitizeEntradaInput,updateEntrada);
-EntradaRouter.delete('/:id', deleteEntrada);
+entradaRouter.get('/', getEntradas);
+entradaRouter.get('/:id', getEntrada);
+entradaRouter.post('/', sanitizeEntradaInput,createEntrada);
+entradaRouter.put('/:id', sanitizeEntradaInput,updateEntrada);
+entradaRouter.delete('/:id', deleteEntrada);

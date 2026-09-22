@@ -217,13 +217,13 @@ export type SalaOrderByWithRelationInput = {
 
 export type SalaWhereUniqueInput = Prisma.AtLeast<{
   Id?: number
+  nombre?: string
   AND?: Prisma.SalaWhereInput | Prisma.SalaWhereInput[]
   OR?: Prisma.SalaWhereInput[]
   NOT?: Prisma.SalaWhereInput | Prisma.SalaWhereInput[]
-  nombre?: Prisma.StringFilter<"Sala"> | string
   capacidad?: Prisma.IntFilter<"Sala"> | number
   funciones?: Prisma.FuncionListRelationFilter
-}, "Id">
+}, "Id" | "nombre">
 
 export type SalaOrderByWithAggregationInput = {
   Id?: Prisma.SortOrder

@@ -1,6 +1,6 @@
 import { seedUsuario } from "../models/usuario/usuario.seed";
 import { seedSala } from "../models/sala/sala.seed";
-import { seedCategoriaFuncion } from "../models/categoria_funcion/categoria_funcion.seed";
+import { seedCategoriaFuncion } from "../models/categoriaFuncion/categoriaFuncion.seed";
 import { seedFuncion } from "../models/funcion/funcion.seed";
 import { seedHorario } from "../models/horario/horario.seed";
 import { seedTipo_Entrada } from "../models/tipo_entrada/tipo_entrada.seed";
