@@ -1,4 +1,5 @@
 ---
+import Sidebar from '../components/Sidebar.astro';
 import '../styles/global.css';
 ---
 
@@ -10,10 +11,15 @@ import '../styles/global.css';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Cineverse</title>
   </head>
-  <body>
-    <slot />
+  <body class="bg-cine-glow text-[var(--color-text-main)] min-h-screen flex">
+
+    <Sidebar/>
+    <main class="flex-1">
+        <slot />
+    </main>
+    
   </body>
 </html>
 

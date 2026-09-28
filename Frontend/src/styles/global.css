@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@theme {
+  --color-bg-main: #08070c;
+  --color-text-main: #f0f0f5;
+  --color-primary: #5914ea;
+  --color-primary-hover: #6c2cf5;
+  --color-secondary: #382e50;
+  --color-accent: #502ca4;
+}
+/* El difuminado idéntico a la segunda imagen */
+.bg-cine-glow {
+  background-color: #08070c;
+  background-image: 
+    /* Resplandor violeta brillante en la esquina inferior derecha (como en la foto 2) */
+    radial-gradient(ellipse 70% 50% at 85% 95%, rgba(89, 20, 234, 0.45) 0%, rgba(56, 14, 150, 0.18) 40%, transparent 75%),
+    /* Resplandor violeta muy sutil y oscuro arriba a la izquierda para balancear */
+    radial-gradient(ellipse 50% 40% at 15% 10%, rgba(80, 44, 164, 0.12) 0%, transparent 60%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

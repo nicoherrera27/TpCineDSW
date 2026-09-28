@@ -28,15 +28,34 @@ export default function Buscador() {
         <div className="grid grid-cols-5 gap-4 mt-4">
           {peliculas.map((peli: any) => (
             <div key={peli.Id} className="flex flex-col items-center">
-              <img
-                src={`${imageBaseURL}${peli.Poster}`}
-                alt={peli.Titulo}
-                className="rounded-lg shadow-md w-full"
-              /> {/* Poster */}
-              <h2 className="text-center mt-2 text-sm font-medium">{peli.Titulo}</h2> {/* Titulo */}
-              {peli.Generos && (<p className="text-blue-400 text-xs">{peli.Generos}</p>)} {/* Géneros */}
-              {peli.FechaEstreno && (<p className="text-gray-400 text-xs">Estreno: {peli.FechaEstreno}</p>)} {/* Fecha de estreno */}
-              {peli.Sinopsis && (<p className="text-gray-300 text-xs line-clamp-4">{peli.Sinopsis}</p>)} {/* Sinopsis */}
+
+              {peli.Poster && !peli.Poster.includes('null') ? (
+                <img
+                  src={`${imageBaseURL}${peli.Poster}`}
+                  alt={peli.Titulo}
+                  className="rounded-lg shadow-md w-full aspect-2/3 object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                />
+              ): (
+                    <div
+                      className="w-full aspect-2/3 bg-[#161324] border border-secondary rounded-lg flex flex-col items-center justify-center text-center p-3 cursor-pointer hover:border-purple-500/50 transition-colors"
+                    >
+                      <span className="text-xs text-zinc-400 font-medium">No contiene imagen</span>
+                    </div>
+              )}
+              <h2 className="text-center mt-2 text-sm font-medium">{peli.Titulo}</h2> 
+              {peli.Generos ?(
+                <p className="text-blue-400 text-xs">{peli.Generos}</p>
+              ):(
+                <p className="text-blue-400 text-xs">Sin generos</p>
+              )}
+              
+              {peli.FechaEstreno && (<p className="text-gray-400 text-xs">Estreno: {peli.FechaEstreno}</p>)} 
+              {peli.Sinopsis ?(
+                (<p className="text-gray-300 text-xs line-clamp-4">{peli.Sinopsis}</p>)
+              ):(
+                <p className="text-gray-300 text-xs line-clamp-4">Sin sinopsis</p>
+              )}
+               
             </div>
           ))}
         </div>

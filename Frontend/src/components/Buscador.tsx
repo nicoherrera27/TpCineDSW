@@ -23,9 +23,11 @@ export default function Buscador() {
       try{
         const url= `${baseURL}/peliculas/${id}`
         const response = await axios.post(url);
-        console.log('Películas cargada:', response.data.data);
+        alert('Película cargada');
+        console.log('Película cargada:',response.data.data)
       }
       catch(error){
+        alert('Error al agregar pelicula')
         console.error('Error al agregar pelicula', error)
       }
 
@@ -38,11 +40,12 @@ export default function Buscador() {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Buscar películas..."
         rows={3}
-        className="w-full p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-3 border border-secondary rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <button
         onClick={() => handleSearch(query)}
-        className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
+        
+        className="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg font-medium transition-all shadow-md shadow-primary/30"
       >
         Buscar
       </button>
@@ -50,13 +53,22 @@ export default function Buscador() {
         <div className="grid grid-cols-5 gap-4 mt-4">
           {peliculas.map((peli: any) => (
             <div key={peli.id} className="flex flex-col items-center">
-              <img
-                src={`${imageBaseURL}${peli.poster_path}`}
-                alt={peli.title}
-                onClick={() => handleAdd(peli.id)}
-                style={{ cursor: 'pointer' }}
-                className="rounded-lg shadow-md w-full"
-              /> {/* Poster */}
+              {peli.poster_path && peli.poster_path !== 'null' ? (
+                <img
+                  src={`${imageBaseURL}${peli.poster_path}`}
+                  alt={peli.title}
+                  onClick={() => handleAdd(peli.id)}
+                  className="rounded-lg shadow-md w-full aspect-2/3 object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                />
+              ): (
+                    <div
+                      onClick={() => handleAdd(peli.id)}
+                      className="w-full aspect-2/3 bg-[#161324] border border-secondary rounded-lg flex flex-col items-center justify-center text-center p-3 cursor-pointer hover:border-purple-500/50 transition-colors"
+                    >
+                      <span className="text-xs text-zinc-400 font-medium">No contiene imagen</span>
+                    </div>
+              )}
+              
               <h2 className="text-center mt-2 text-sm font-medium">{peli.title}</h2> {/* Titulo */}
               {peli.generos && (<p className="text-blue-400 text-xs">{peli.generos}</p>)} {/* Géneros */}
               {peli.release_date && (<p className="text-gray-400 text-xs">Estreno: {peli.release_date}</p>)} {/* Fecha de estreno */}

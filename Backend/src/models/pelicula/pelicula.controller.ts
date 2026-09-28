@@ -34,7 +34,7 @@ async function createPelicula (req: Request, res: Response){
   try{
     const { tmdbId } = req.params;
     const pelicula = await fetchTMDBPeliculas(Number(tmdbId));
-    const generos = pelicula.genres.map((g: any) => g.name).join(',');
+    const generos = pelicula.genres.map((g: any) => g.name).join(', ');
 
     const  peliculaNueva = await prisma.pelicula.create({
       data:{
