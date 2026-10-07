@@ -23,9 +23,9 @@ export default function Buscador() {
 
 
   return (
-    <div className="flex flex-col gap-4 w-full max-w-7x1 mx-auto p-4">  
+    <div className="flex flex-col gap-4 w-full max-w-7x1 mx-auto px-20">  
       {peliculas.length > 0 && (
-        <div className="grid grid-cols-5 gap-4 mt-4">
+        <div className="grid grid-cols-6 gap-4 mt-4">
           {peliculas.map((peli: any) => (
             <div key={peli.Id} className="flex flex-col items-center">
 
