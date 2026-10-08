@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { baseURL, imageBaseURL } from '../assets/rutas';
+import { baseURL, imageBaseURL } from '../../assets/rutas';
 
 export default function Buscador() {
   const [query, setQuery] = useState('');

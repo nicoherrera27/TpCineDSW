@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { baseURL, imageBaseURL } from '../assets/rutas';
 
-export default function Buscador() {
+export default function Listado() {
   const [peliculas, setPeliculas] = useState([]);
 
   const handleGetPeliculasBBDD = async () => {

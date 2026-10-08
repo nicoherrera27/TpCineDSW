@@ -1,0 +1,50 @@
+---
+import { imageBaseURL,baseURL } from "../../assets/rutas";
+
+interface Props{
+    peliculas: any[];
+}
+
+const {peliculas}=Astro.props
+
+---
+
+<div class="flex flex-col gap-4 w-full max-w-7x1 mx-auto px-20">  
+      {peliculas.length > 0 && (
+        <div class="grid grid-cols-6 gap-4 mt-4">
+          {peliculas.map((peli: any) => (
+            <div class="flex flex-col items-center">
+
+              {peli.Poster && !peli.Poster.includes('null') ? (
+                <img
+                  src={`${imageBaseURL}${peli.Poster}`}
+                  alt={peli.Titulo}
+                  class="rounded-lg shadow-md w-full aspect-2/3 object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                />
+              ): (
+                    <div
+                      class="w-full aspect-2/3 bg-[#161324] border border-secondary rounded-lg flex flex-col items-center justify-center text-center p-3 cursor-pointer hover:border-purple-500/50 transition-colors"
+                    >
+                      <span class="text-xs text-zinc-400 font-medium">No contiene imagen</span>
+                    </div>
+              )}
+              <h2 class="text-center mt-2 text-sm font-medium">{peli.Titulo}</h2> 
+              {peli.Generos ?(
+                <p class="text-blue-400 text-xs">{peli.Generos}</p>
+              ):(
+                <p class="text-blue-400 text-xs">Sin generos</p>
+              )}
+              
+              {peli.FechaEstreno && (<p class="text-gray-400 text-xs">Estreno: {peli.FechaEstreno}</p>)} 
+              {peli.Sinopsis ?(
+                (<p class="text-gray-300 text-xs line-clamp-4">{peli.Sinopsis}</p>)
+              ):(
+                <p class="text-gray-300 text-xs line-clamp-4">Sin sinopsis</p>
+              )}
+               
+            </div>
+          ))}
+        </div>
+      )}
+      
+    </div>

@@ -1,5 +1,5 @@
 ---
-import Sidebar from '../components/Sidebar.astro';
+import Sidebar from '../components/admin/Sidebar.astro';
 import '../styles/global.css';
 ---
 
@@ -13,13 +13,14 @@ import '../styles/global.css';
     <meta name="generator" content={Astro.generator} />
     <title>Cineverse</title>
   </head>
-  <body class="bg-cine-glow text-[var(--color-text-main)] min-h-screen flex">
+  <body class="bg-cine-glow text-text-main min-h-screen flex">
 
-    <Sidebar/>
+   
+    
     <main class="flex-1">
         <slot />
     </main>
-    
+     <Sidebar/>
   </body>
 </html>
 

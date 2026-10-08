@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { baseURL, imageBaseURL } from '../assets/rutas';
+import { baseURL, imageBaseURL } from '../../assets/rutas';
 interface Pelicula {
   Id: number;
   Titulo: string;
@@ -33,7 +33,7 @@ export default function CarouselEstrenos() {
   const canGoNext = startIndex < maxIndex;
   return (
     <section className="w-full max-w- 7xl mx-auto px-20 py-6">
-      <h2 className="text-2xl font-semibold text-[var(--color-text-main)] mb-4">
+      <h2 className="text-2xl font-semibold text-text-main mb-4">
         Próximos Estrenos
       </h2>
       <div className="relative group">
@@ -43,7 +43,7 @@ export default function CarouselEstrenos() {
             onClick={() => setStartIndex((prev) => Math.max(0, prev - 1))}
             className="absolute -left-5 top-1/2 -translate-y-1/2 z-10
                        w-10 h-10 rounded-full
-                       bg-[var(--color-secondary)]/80 hover:bg-[var(--color-primary)]
+                       bg-secondary/80 hover:bg-primary
                        text-white flex items-center justify-center
                        transition-all duration-200
                        opacity-0 group-hover:opacity-100
@@ -66,25 +66,25 @@ export default function CarouselEstrenos() {
             {peliculas.map((peli) => (
               <div
                 key={peli.Id}
-                className="flex-shrink-0 flex flex-col items-center cursor-pointer"
+                className="shrink-0 flex flex-col items-center cursor-pointer"
                 style={{ width: `calc(100% / ${VISIBLE_COUNT} - 0.67rem)` }}
               >
                 {peli.Poster && !peli.Poster.includes('null') ? (
                   <img
                     src={`${imageBaseURL}${peli.Poster}`}
                     alt={peli.Titulo}
-                    className="rounded-lg shadow-md w-full aspect-[2/3] object-cover
+                    className="rounded-lg shadow-md w-full aspect-2/3 object-cover
                                hover:opacity-80 transition-opacity duration-200
-                               border border-transparent hover:border-[var(--color-primary)]/50"
+                               border border-transparent hover:border-primary/50"
                   />
                 ) : (
-                  <div className="w-full aspect-[2/3] bg-[#161324] border border-[var(--color-secondary)]
+                  <div className="w-full aspect-2/3 bg-[#161324] border border-secondary
                                   rounded-lg flex flex-col items-center justify-center text-center p-3
                                   hover:border-purple-500/50 transition-colors">
                     <span className="text-xs text-zinc-400 font-medium">Sin imagen</span>
                   </div>
                 )}
-                <h3 className="text-center mt-2 text-sm font-medium text-[var(--color-text-main)] line-clamp-1">
+                <h3 className="text-center mt-2 text-sm font-medium text-text-main line-clamp-1">
                   {peli.Titulo}
                 </h3>
                 <p className="text-blue-400 text-xs">
@@ -100,7 +100,7 @@ export default function CarouselEstrenos() {
             onClick={() => setStartIndex((prev) => Math.min(maxIndex, prev + 1))}
             className="absolute -right-5 top-1/2 -translate-y-1/2 z-10
                        w-10 h-10 rounded-full
-                       bg-[var(--color-secondary)]/80 hover:bg-[var(--color-primary)]
+                       bg-secondary/80 hover:bg-primary
                        text-white flex items-center justify-center
                        transition-all duration-200
                        opacity-0 group-hover:opacity-100
