@@ -19,11 +19,11 @@ const {peliculas}=Astro.props
                 <img
                   src={`${imageBaseURL}${peli.Poster}`}
                   alt={peli.Titulo}
-                  class="rounded-lg shadow-md w-full aspect-2/3 object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                  class="rounded-lg shadow-md w-full aspect-2/3 object-cover hover:opacity-80 transition-opacity"
                 />
               ): (
                     <div
-                      class="w-full aspect-2/3 bg-[#161324] border border-secondary rounded-lg flex flex-col items-center justify-center text-center p-3 cursor-pointer hover:border-purple-500/50 transition-colors"
+                      class="w-full aspect-2/3 bg-[#161324] border border-secondary rounded-lg flex flex-col items-center justify-center text-center p-3 hover:border-purple-500/50 transition-colors"
                     >
                       <span class="text-xs text-zinc-400 font-medium">No contiene imagen</span>
                     </div>

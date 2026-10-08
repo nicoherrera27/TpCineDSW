@@ -66,7 +66,7 @@ export default function CarouselEstrenos() {
             {peliculas.map((peli) => (
               <div
                 key={peli.Id}
-                className="shrink-0 flex flex-col items-center cursor-pointer"
+                className="shrink-0 flex flex-col items-center"
                 style={{ width: `calc(100% / ${VISIBLE_COUNT} - 0.67rem)` }}
               >
                 {peli.Poster && !peli.Poster.includes('null') ? (
@@ -75,12 +75,12 @@ export default function CarouselEstrenos() {
                     alt={peli.Titulo}
                     className="rounded-lg shadow-md w-full aspect-2/3 object-cover
                                hover:opacity-80 transition-opacity duration-200
-                               border border-transparent hover:border-primary/50"
+                               border border-transparent"
                   />
                 ) : (
                   <div className="w-full aspect-2/3 bg-[#161324] border border-secondary
                                   rounded-lg flex flex-col items-center justify-center text-center p-3
-                                  hover:border-purple-500/50 transition-colors">
+                                  ">
                     <span className="text-xs text-zinc-400 font-medium">Sin imagen</span>
                   </div>
                 )}
