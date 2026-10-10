@@ -20,7 +20,14 @@ function sanitizeFuncionInput(req: Request, res: Response, next: NextFunction) {
 
 async function getFunciones (req: Request, res: Response){
   try {
-    const funciones = await prisma.funcion.findMany();
+    const funciones = await prisma.funcion.findMany({
+      include:{
+        horarios:true,
+        pelicula:true,
+        sala:true,
+        categoria:true
+      }
+    });
     res.status(201).json({message: 'funciones encontradas', data: funciones});
   } catch (error: any) {
     res.status(500).json({ message: error.message });

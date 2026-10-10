@@ -21,25 +21,23 @@ src/
 ├── components/
 │   ├── common/                      # Compartidos
 │   │   ├── Pagination.tsx           # 🟡 React — paginación interactiva
-│   │   └── Modal.tsx                # 🟡 React — abrir/cerrar modal
+│   │   ├── Modal.tsx                # 🟡 React — abrir/cerrar modal
+│   │   └── Cartelera.astro           # 🔵 Astro — grid de películas (recibe props)
 │   │
 │   ├── client/                      # Vista pública (solo home)
-│   │   ├── Sidebar.astro            # 🔵 Astro — navegación estática
-│   │   ├── Cartelera.astro          # 🔵 Astro — grid de películas (recibe props)
 │   │   ├── CarouselEstrenos.tsx     # 🟡 React — carrusel con prev/next
 │   │   └── Footer.astro             # 🔵 Astro — footer estático
 │   │
 │   └── admin/                       # Panel de administración
-│       ├── AdminSidebar.astro       # 🔵 Astro — sidebar admin
-│       ├── AdminNavbar.astro        # 🔵 Astro — tabs de entidades
-│       ├── StatsCards.astro          # 🔵 Astro — cards recaudación
+│       ├── Sidebar.astro            # 🔵 Astro — navegación estática
+│       ├── AdminPanel.astro         # 🔵 Astro — tabs de entidades
+│       ├── StatsCards.astro         # 🔵 Astro — cards recaudación
 │       ├── DashboardSchedule.tsx    # 🟡 React — agenda diaria
 │       ├── TopTaquillera.tsx        # 🟡 React — top películas
 │       ├── Buscador.tsx             # 🟡 React — buscar en TMDB y agregar
 │       │
 │       ├── tables/                  # Tablas CRUD
 │       │   ├── UsuariosTable.tsx    # 🟡 React
-│       │   ├── PeliculasTable.tsx   # 🟡 React
 │       │   ├── SalasTable.tsx       # 🟡 React
 │       │   ├── FuncionesTable.tsx   # 🟡 React
 │       │   ├── PreciosTable.tsx     # 🟡 React
@@ -48,7 +46,6 @@ src/
 │       │
 │       └── forms/                   # Formularios crear/editar
 │           ├── UsuarioForm.tsx      # 🟡 React
-│           ├── PeliculaForm.tsx     # 🟡 React
 │           ├── SalaForm.tsx         # 🟡 React
 │           ├── FuncionForm.tsx      # 🟡 React
 │           ├── PrecioForm.tsx       # 🟡 React
